@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WeatherNow">
         <activity
+            android:name=".SavedPage"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
