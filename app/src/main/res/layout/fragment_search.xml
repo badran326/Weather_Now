@@ -14,8 +14,11 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
+        android:background="@color/deep_navy"
+        android:paddingTop="48dp"
+        android:paddingBottom="24dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
         app:title="@string/app_name"
         app:titleTextColor="@color/white"
         app:titleTextAppearance="@style/TextAppearance.MyApp.HeadlineLarge"
@@ -23,9 +26,10 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
-            android:paddingTop="16dp">
+            android:background="@color/solitude"
+            android:paddingTop="24dp">
 
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/search_bar"
@@ -37,10 +41,10 @@
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
                 app:iconifiedByDefault="false"
-                app:queryHint="@string/search_for_a_city"
-                app:searchIcon="@null"/>
+                app:queryHint="Search for a city..."
+                app:searchIcon="@null"
+                app:queryBackground="@android:color/transparent" />
 
-            <!-- UK / London -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_london"
                 android:layout_width="match_parent"
@@ -124,7 +128,6 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- CA / Toronto -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_toronto"
                 android:layout_width="match_parent"
@@ -208,7 +211,6 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- JP / Tokyo -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_tokyo"
                 android:layout_width="match_parent"
@@ -292,7 +294,6 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- AU / Sydney -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_sydney"
                 android:layout_width="match_parent"
@@ -376,7 +377,6 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
-            <!-- US / New York -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/card_new_york"
                 android:layout_width="match_parent"
