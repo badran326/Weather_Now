@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
         switchFragment(searchFragment);
 
-        binding.bottomNavView.setBackground(null);
-
         binding.bottomNavView.setOnItemSelectedListener(item -> {
             int itemId = item.getItemId();
             if (itemId == R.id.search) {
