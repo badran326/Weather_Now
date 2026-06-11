@@ -14,13 +14,13 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/deep_navy"
+        android:background="@color/colorPrimary"
         android:paddingTop="48dp"
         android:paddingBottom="24dp"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
         app:title="@string/app_name"
-        app:titleTextColor="@color/white"
+        app:titleTextColor="@color/colorSecondary"
         app:titleTextAppearance="@style/TextAppearance.MyApp.HeadlineLarge"
         android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar" />
 
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@color/solitude"
+            android:background="@color/backgroundColor"
             android:paddingTop="24dp">
 
             <androidx.appcompat.widget.SearchView
@@ -70,7 +70,7 @@
                         android:backgroundTint="@color/uk_flag"
                         android:gravity="center"
                         android:text="@string/uk_code"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorSecondary"
                         android:textStyle="bold"
                         android:textAppearance="@style/TextAppearance.MyApp.Text" />
 
@@ -153,7 +153,7 @@
                         android:backgroundTint="@color/ca_flag"
                         android:gravity="center"
                         android:text="@string/ca_code"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorSecondary"
                         android:textStyle="bold"
                         android:textAppearance="@style/TextAppearance.MyApp.Text" />
 
@@ -236,7 +236,7 @@
                         android:backgroundTint="@color/jp_flag"
                         android:gravity="center"
                         android:text="@string/jp_code"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorSecondary"
                         android:textStyle="bold"
                         android:textAppearance="@style/TextAppearance.MyApp.Text" />
 
@@ -319,7 +319,7 @@
                         android:backgroundTint="@color/au_flag"
                         android:gravity="center"
                         android:text="@string/au_code"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorSecondary"
                         android:textStyle="bold"
                         android:textAppearance="@style/TextAppearance.MyApp.Text" />
 
@@ -402,7 +402,7 @@
                         android:backgroundTint="@color/us_flag"
                         android:gravity="center"
                         android:text="@string/us_code"
-                        android:textColor="@color/white"
+                        android:textColor="@color/colorSecondary"
                         android:textStyle="bold"
                         android:textAppearance="@style/TextAppearance.MyApp.Text" />
 
