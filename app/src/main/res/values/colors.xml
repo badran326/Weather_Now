@@ -2,4 +2,13 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="uk_flag">#2563EB</color>
+    <color name="ca_flag">#DC2626</color>
+    <color name="jp_flag">#991B1B</color>
+    <color name="au_flag">#166534</color>
+    <color name="us_flag">#1E293B</color>
+    <color name="text_primary">#1E293B</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="deep_navy">#0A1628</color>
+    <color name="solitude">#EEF2FF</color>
 </resources>

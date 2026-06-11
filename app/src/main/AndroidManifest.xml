@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WeatherNow">
         <activity
-            android:name=".Saved"
+            android:name=".CityDetail"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
