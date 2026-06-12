@@ -15,7 +15,7 @@ public class SplashActivity extends AppCompatActivity {
 
     ActivitySplashBinding binding;
     Handler handler = new Handler(Looper.getMainLooper());
-    private static final long SPLASH_DELAY = 3000L;
+    private static final long SPLASH_DELAY = 2000L;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

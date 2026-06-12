@@ -76,10 +76,9 @@
 
                         <TextView
                             android:id="@+id/tv_uk_flag"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:background="@drawable/flag_background"
-                            android:backgroundTint="@color/uk_flag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="30sp"
                             android:gravity="center"
                             android:text="@string/uk_code"
                             android:textColor="?attr/colorOnPrimary"
@@ -161,10 +160,9 @@
 
                         <TextView
                             android:id="@+id/tv_ca_flag"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:background="@drawable/flag_background"
-                            android:backgroundTint="@color/ca_flag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="30sp"
                             android:gravity="center"
                             android:text="@string/ca_code"
                             android:textColor="?attr/colorOnPrimary"
@@ -246,10 +244,9 @@
 
                         <TextView
                             android:id="@+id/tv_jp_flag"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:background="@drawable/flag_background"
-                            android:backgroundTint="@color/jp_flag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="30sp"
                             android:gravity="center"
                             android:text="@string/jp_code"
                             android:textColor="?attr/colorOnPrimary"
@@ -331,10 +328,9 @@
 
                         <TextView
                             android:id="@+id/tv_au_flag"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:background="@drawable/flag_background"
-                            android:backgroundTint="@color/au_flag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="30sp"
                             android:gravity="center"
                             android:text="@string/au_code"
                             android:textColor="?attr/colorOnPrimary"
@@ -416,10 +412,9 @@
 
                         <TextView
                             android:id="@+id/tv_us_flag"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:background="@drawable/flag_background"
-                            android:backgroundTint="@color/us_flag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="30sp"
                             android:gravity="center"
                             android:text="@string/us_code"
                             android:textColor="?attr/colorOnPrimary"
