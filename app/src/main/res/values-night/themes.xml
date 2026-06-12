@@ -2,9 +2,15 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.WeatherNow" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorSecondary">@color/colorSecondary</item>
-        <item name="backgroundColor">@color/backgroundColor</item>
+        <item name="colorPrimary">@color/headerNight</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/surfaceNight</item>
+        <item name="android:windowBackground">@color/backgroundNight</item>
+        <item name="colorSurface">@color/surfaceNight</item>
+        <item name="colorOnSurface">@color/textPrimaryNight</item>
+        <item name="colorOnSurfaceVariant">@color/textSecondaryNight</item>
+        <item name="android:textColorPrimary">@color/textPrimaryNight</item>
+        <item name="android:textColorSecondary">@color/textSecondaryNight</item>
     </style>
 
     <style name="Theme.NoSplash" parent="Theme.MaterialComponents.DayNight.NoActionBar">

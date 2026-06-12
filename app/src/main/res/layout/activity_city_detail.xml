@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/backgroundColor"
+    android:background="?android:attr/windowBackground"
     android:orientation="vertical"
     tools:context=".CityDetail">
 
@@ -22,14 +22,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/london"
-            android:textColor="@color/colorSecondary"
+            android:textColor="?attr/colorOnPrimary"
             android:textAppearance="@style/TextAppearance.MyApp.HeadlineLarge" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/london_location"
-            android:textColor="#A0FFFFFF"
+            android:textColor="?attr/android:textColorSecondary"
             android:textSize="14sp"
             android:textAppearance="@style/TextAppearance.MyApp.Text" />
     </LinearLayout>
@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="@color/colorSecondary"
+                app:cardBackgroundColor="?attr/colorSurface"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="0dp"
                 app:strokeWidth="0dp">
@@ -66,7 +66,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/cloudy"
-                        android:textColor="@color/text_secondary"
+                        android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="18sp"
                         android:textAppearance="@style/TextAppearance.MyApp.Text" />
 
@@ -80,7 +80,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/temp_14_deg"
-                            android:textColor="@color/text_primary"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="100sp"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
 
@@ -89,7 +89,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="24dp"
                             android:text="@string/temp_c_unit"
-                            android:textColor="@color/text_primary"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="40sp"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
                     </LinearLayout>
@@ -98,7 +98,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/temp_f"
-                        android:textColor="@color/text_secondary"
+                        android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="16sp"
                         android:textAppearance="@style/TextAppearance.MyApp.Text" />
 
@@ -118,7 +118,7 @@
                     android:layout_columnWeight="1"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="@color/colorSecondary"
+                    app:cardBackgroundColor="?attr/colorSurface"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="0dp"
                     app:strokeWidth="0dp">
@@ -133,7 +133,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/humidity"
-                            android:textColor="@color/text_secondary"
+                            android:textColor="?attr/colorOnSurfaceVariant"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
@@ -143,7 +143,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:text="@string/humidity_val"
-                            android:textColor="@color/text_primary"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="24sp"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
                     </LinearLayout>
@@ -156,7 +156,7 @@
                     android:layout_columnWeight="1"
                     android:layout_marginStart="8dp"
                     android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="@color/colorSecondary"
+                    app:cardBackgroundColor="?attr/colorSurface"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="0dp"
                     app:strokeWidth="0dp">
@@ -171,7 +171,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/wind"
-                            android:textColor="@color/text_secondary"
+                            android:textColor="?attr/colorOnSurfaceVariant"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
@@ -181,7 +181,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:text="@string/wind_val"
-                            android:textColor="@color/text_primary"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="24sp"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
                     </LinearLayout>
@@ -194,7 +194,7 @@
                     android:layout_columnWeight="1"
                     android:layout_marginEnd="8dp"
                     android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="@color/colorSecondary"
+                    app:cardBackgroundColor="?attr/colorSurface"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="0dp"
                     app:strokeWidth="0dp">
@@ -209,7 +209,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/feels_like"
-                            android:textColor="@color/text_secondary"
+                            android:textColor="?attr/colorOnSurfaceVariant"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
@@ -219,7 +219,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:text="@string/feels_like_val"
-                            android:textColor="@color/text_primary"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="24sp"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
                     </LinearLayout>
@@ -232,7 +232,7 @@
                     android:layout_columnWeight="1"
                     android:layout_marginStart="8dp"
                     android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="@color/colorSecondary"
+                    app:cardBackgroundColor="?attr/colorSurface"
                     app:cardCornerRadius="16dp"
                     app:cardElevation="0dp"
                     app:strokeWidth="0dp">
@@ -247,7 +247,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/uv_index"
-                            android:textColor="@color/text_secondary"
+                            android:textColor="?attr/colorOnSurfaceVariant"
                             android:textSize="12sp"
                             android:textStyle="bold"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
@@ -257,7 +257,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
                             android:text="@string/uv_index_val"
-                            android:textColor="@color/text_primary"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="24sp"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
                     </LinearLayout>
@@ -272,7 +272,7 @@
                 android:layout_marginBottom="32dp"
                 android:gravity="center"
                 android:text="@string/last_updated"
-                android:textColor="#C0C0C0"
+                android:textColor="?attr/android:textColorSecondary"
                 android:textSize="14sp"
                 android:textAppearance="@style/TextAppearance.MyApp.Text" />
 

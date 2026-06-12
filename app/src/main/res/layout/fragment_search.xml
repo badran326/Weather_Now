@@ -7,335 +7,354 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="?attr/backgroundColor"
+    android:background="?android:attr/windowBackground"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
+        android:background="?attr/colorPrimary"
         android:paddingTop="48dp"
         android:paddingBottom="24dp"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
         app:title="@string/app_name"
-        app:titleTextColor="@color/colorSecondary"
+        app:titleTextColor="?attr/colorOnPrimary"
         app:titleTextAppearance="@style/TextAppearance.MyApp.HeadlineLarge"
         android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar" />
 
-        <LinearLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="?android:attr/windowBackground"
+        android:paddingTop="24dp">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginHorizontal="18dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/search_background"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            app:iconifiedByDefault="false"
+            app:queryHint="Search for a city..."
+            app:searchIcon="@null"
+            app:queryBackground="@android:color/transparent" />
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="@color/backgroundColor"
-            android:paddingTop="24dp">
+            android:clipToPadding="false"
+            android:paddingBottom="16dp">
 
-            <androidx.appcompat.widget.SearchView
-                android:id="@+id/search_bar"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginHorizontal="18dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/search_background"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                app:iconifiedByDefault="false"
-                app:queryHint="Search for a city..."
-                app:searchIcon="@null"
-                app:queryBackground="@android:color/transparent" />
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_london"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="18dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="0dp"
-                app:strokeWidth="0dp">
+                android:orientation="vertical">
 
-                <LinearLayout
+                <!-- London Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_london"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/tv_uk_flag"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/flag_background"
-                        android:backgroundTint="@color/uk_flag"
-                        android:gravity="center"
-                        android:text="@string/uk_code"
-                        android:textColor="@color/colorSecondary"
-                        android:textStyle="bold"
-                        android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                    android:layout_marginHorizontal="18dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="?attr/colorSurface"
+                    app:strokeWidth="0dp">
 
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="16dp"
-                        android:orientation="vertical">
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:gravity="center_vertical">
 
                         <TextView
-                            android:id="@+id/tv_london_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/london"
-                            android:textColor="@color/text_primary"
-                            android:textSize="18sp"
+                            android:id="@+id/tv_uk_flag"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/flag_background"
+                            android:backgroundTint="@color/uk_flag"
+                            android:gravity="center"
+                            android:text="@string/uk_code"
+                            android:textColor="?attr/colorOnPrimary"
                             android:textStyle="bold"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
 
-                        <TextView
-                            android:id="@+id/tv_london_location"
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="16dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_london_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/london"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+
+                            <TextView
+                                android:id="@+id/tv_london_location"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/london_location"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="14sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/london_location"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="14sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                            android:gravity="end"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_london_temp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/temp_14"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="22sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+
+                            <TextView
+                                android:id="@+id/tv_london_condition"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/cloudy"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="12sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                        </LinearLayout>
                     </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tv_london_temp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/temp_14"
-                            android:textColor="@color/text_primary"
-                            android:textSize="22sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-
-                        <TextView
-                            android:id="@+id/tv_london_condition"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cloudy"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_toronto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="18dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="0dp"
-                app:strokeWidth="0dp">
-
-                <LinearLayout
+                <!-- Toronto Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_toronto"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/tv_ca_flag"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/flag_background"
-                        android:backgroundTint="@color/ca_flag"
-                        android:gravity="center"
-                        android:text="@string/ca_code"
-                        android:textColor="@color/colorSecondary"
-                        android:textStyle="bold"
-                        android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                    android:layout_marginHorizontal="18dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="?attr/colorSurface"
+                    app:strokeWidth="0dp">
 
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="16dp"
-                        android:orientation="vertical">
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:gravity="center_vertical">
 
                         <TextView
-                            android:id="@+id/tv_toronto_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/toronto"
-                            android:textColor="@color/text_primary"
-                            android:textSize="18sp"
+                            android:id="@+id/tv_ca_flag"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/flag_background"
+                            android:backgroundTint="@color/ca_flag"
+                            android:gravity="center"
+                            android:text="@string/ca_code"
+                            android:textColor="?attr/colorOnPrimary"
                             android:textStyle="bold"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
 
-                        <TextView
-                            android:id="@+id/tv_toronto_location"
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="16dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_toronto_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/toronto"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+
+                            <TextView
+                                android:id="@+id/tv_toronto_location"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/toronto_location"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="14sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/toronto_location"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="14sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                            android:gravity="end"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_toronto_temp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/temp_22"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="22sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+
+                            <TextView
+                                android:id="@+id/tv_toronto_condition"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sunny"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="12sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                        </LinearLayout>
                     </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tv_toronto_temp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/temp_22"
-                            android:textColor="@color/text_primary"
-                            android:textSize="22sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-
-                        <TextView
-                            android:id="@+id/tv_toronto_condition"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/sunny"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_tokyo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="18dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="0dp"
-                app:strokeWidth="0dp">
-
-                <LinearLayout
+                <!-- Tokyo Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_tokyo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/tv_jp_flag"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/flag_background"
-                        android:backgroundTint="@color/jp_flag"
-                        android:gravity="center"
-                        android:text="@string/jp_code"
-                        android:textColor="@color/colorSecondary"
-                        android:textStyle="bold"
-                        android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                    android:layout_marginHorizontal="18dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="?attr/colorSurface"
+                    app:strokeWidth="0dp">
 
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="16dp"
-                        android:orientation="vertical">
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:gravity="center_vertical">
 
                         <TextView
-                            android:id="@+id/tv_tokyo_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/tokyo"
-                            android:textColor="@color/text_primary"
-                            android:textSize="18sp"
+                            android:id="@+id/tv_jp_flag"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/flag_background"
+                            android:backgroundTint="@color/jp_flag"
+                            android:gravity="center"
+                            android:text="@string/jp_code"
+                            android:textColor="?attr/colorOnPrimary"
                             android:textStyle="bold"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
 
-                        <TextView
-                            android:id="@+id/tv_tokyo_location"
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="16dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_tokyo_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tokyo"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+
+                            <TextView
+                                android:id="@+id/tv_tokyo_location"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/tokyo_location"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="14sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/tokyo_location"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="14sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                            android:gravity="end"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_tokyo_temp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/temp_28"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="22sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+
+                            <TextView
+                                android:id="@+id/tv_tokyo_condition"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/clear"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="12sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                        </LinearLayout>
                     </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tv_tokyo_temp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/temp_28"
-                            android:textColor="@color/text_primary"
-                            android:textSize="22sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-
-                        <TextView
-                            android:id="@+id/tv_tokyo_condition"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/clear"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_sydney"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="18dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="0dp"
-                app:strokeWidth="0dp">
-
-                <LinearLayout
+                <!-- Sydney Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_sydney"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/tv_au_flag"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/flag_background"
-                        android:backgroundTint="@color/au_flag"
-                        android:gravity="center"
-                        android:text="@string/au_code"
-                        android:textColor="@color/colorSecondary"
-                        android:textStyle="bold"
-                        android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                    android:layout_marginHorizontal="18dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="?attr/colorSurface"
+                    app:strokeWidth="0dp">
 
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="16dp"
-                        android:orientation="vertical">
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/tv_au_flag"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/flag_background"
+                            android:backgroundTint="@color/au_flag"
+                            android:gravity="center"
+                            android:text="@string/au_code"
+                            android:textColor="?attr/colorOnPrimary"
+                            android:textStyle="bold"
+                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="16dp"
+                            android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/tv_sydney_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/sydney"
-                            android:textColor="@color/text_primary"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="18sp"
                             android:textStyle="bold"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
@@ -345,7 +364,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/sydney_location"
-                            android:textColor="@color/text_secondary"
+                            android:textColor="?attr/colorOnSurfaceVariant"
                             android:textSize="14sp"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
                     </LinearLayout>
@@ -361,7 +380,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/temp_20"
-                            android:textColor="@color/text_primary"
+                            android:textColor="?attr/colorOnSurface"
                             android:textSize="22sp"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
 
@@ -370,95 +389,100 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/sunny"
-                            android:textColor="@color/text_secondary"
+                            android:textColor="?attr/colorOnSurfaceVariant"
                             android:textSize="12sp"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                        </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
+                </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card_new_york"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="18dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="0dp"
-                app:strokeWidth="0dp">
-
-                <LinearLayout
+                <!-- New York Card -->
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/card_new_york"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp"
-                    android:gravity="center_vertical">
-
-                    <TextView
-                        android:id="@+id/tv_us_flag"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/flag_background"
-                        android:backgroundTint="@color/us_flag"
-                        android:gravity="center"
-                        android:text="@string/us_code"
-                        android:textColor="@color/colorSecondary"
-                        android:textStyle="bold"
-                        android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                    android:layout_marginHorizontal="18dp"
+                    android:layout_marginBottom="16dp"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="0dp"
+                    app:cardBackgroundColor="?attr/colorSurface"
+                    app:strokeWidth="0dp">
 
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:layout_marginStart="16dp"
-                        android:orientation="vertical">
+                        android:orientation="horizontal"
+                        android:padding="16dp"
+                        android:gravity="center_vertical">
 
                         <TextView
-                            android:id="@+id/tv_new_york_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/new_york"
-                            android:textColor="@color/text_primary"
-                            android:textSize="18sp"
+                            android:id="@+id/tv_us_flag"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/flag_background"
+                            android:backgroundTint="@color/us_flag"
+                            android:gravity="center"
+                            android:text="@string/us_code"
+                            android:textColor="?attr/colorOnPrimary"
                             android:textStyle="bold"
                             android:textAppearance="@style/TextAppearance.MyApp.Text" />
 
-                        <TextView
-                            android:id="@+id/tv_new_york_location"
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginStart="16dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_new_york_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/new_york"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+
+                            <TextView
+                                android:id="@+id/tv_new_york_location"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/new_york_location"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="14sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                        </LinearLayout>
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/new_york_location"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="14sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                            android:gravity="end"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_new_york_temp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/temp_11"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="22sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+
+                            <TextView
+                                android:id="@+id/tv_new_york_condition"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/rainy"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="12sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                        </LinearLayout>
                     </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="end"
-                        android:orientation="vertical">
+            </LinearLayout>
+        </ScrollView>
 
-                        <TextView
-                            android:id="@+id/tv_new_york_temp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/temp_11"
-                            android:textColor="@color/text_primary"
-                            android:textSize="22sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-
-                        <TextView
-                            android:id="@+id/tv_new_york_condition"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/rainy"
-                            android:textColor="@color/text_secondary"
-                            android:textSize="12sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-                    </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-        </LinearLayout>
+    </LinearLayout>
 </LinearLayout>
