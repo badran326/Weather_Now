@@ -6,34 +6,34 @@
     <string name="search_hint">Search for a city...</string>
 
     <!-- UK -->
-    <string name="uk_code">UK</string>
+    <string name="uk_code">🇬🇧</string>
     <string name="london">London</string>
     <string name="london_location">City of London, Greater London</string>
     <string name="temp_14">14°</string>
     <string name="cloudy">Cloudy</string>
 
     <!-- CA -->
-    <string name="ca_code">CA</string>
+    <string name="ca_code">🇨🇦</string>
     <string name="toronto">Toronto</string>
     <string name="toronto_location">Ontario</string>
     <string name="temp_22">22°</string>
     <string name="sunny">Sunny</string>
 
     <!-- JP -->
-    <string name="jp_code">JP</string>
+    <string name="jp_code">🇯🇵</string>
     <string name="tokyo">Tokyo</string>
     <string name="tokyo_location">Tokyo-to</string>
     <string name="temp_28">28°</string>
     <string name="clear">Clear</string>
 
     <!-- AU -->
-    <string name="au_code">AU</string>
+    <string name="au_code">🇦🇺</string>
     <string name="sydney">Sydney</string>
     <string name="sydney_location">New South Wales</string>
     <string name="temp_20">20°</string>
 
     <!-- US -->
-    <string name="us_code">US</string>
+    <string name="us_code">🇺🇸</string>
     <string name="new_york">New York</string>
     <string name="new_york_location">New York State</string>
     <string name="temp_11">11°</string>
@@ -46,7 +46,7 @@
     <string name="humidity">HUMIDITY</string>
     <string name="humidity_val">82%</string>
     <string name="wind">WIND</string>
-    <string name="wind_val">12 km/h</string>
+    <string name="wind_val">12 kph</string>
     <string name="feels_like">FEELS LIKE</string>
     <string name="feels_like_val">13°</string>
     <string name="uv_index">UV INDEX</string>

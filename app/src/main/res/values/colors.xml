@@ -9,6 +9,14 @@
     <color name="us_flag">#1E293B</color>
     <color name="text_primary">#1E293B</color>
     <color name="text_secondary">#64748B</color>
-    <color name="deep_navy">#0A1628</color>
-    <color name="solitude">#EEF2FF</color>
+    <color name="colorPrimary">#0A1628</color>
+    <color name="backgroundColor">#EEF2FF</color>
+    <color name="colorSecondary">#FFFFFFFF</color>
+
+    <!-- Night Theme Colors -->
+    <color name="backgroundNight">#020617</color>
+    <color name="surfaceNight">#0F172A</color>
+    <color name="headerNight">#1E293B</color>
+    <color name="textPrimaryNight">#F1F5F9</color>
+    <color name="textSecondaryNight">#94A3B8</color>
 </resources>

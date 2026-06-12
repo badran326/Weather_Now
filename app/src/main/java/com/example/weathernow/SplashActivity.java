@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +14,8 @@ import com.example.weathernow.databinding.ActivitySplashBinding;
 public class SplashActivity extends AppCompatActivity {
 
     ActivitySplashBinding binding;
-    Handler handler = new Handler();
+    Handler handler = new Handler(Looper.getMainLooper());
+    private static final long SPLASH_DELAY = 2000L;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +23,10 @@ public class SplashActivity extends AppCompatActivity {
         binding = ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        }, 3000);
+        handler.postDelayed(() -> {
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }, SPLASH_DELAY);
     }
 }

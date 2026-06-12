@@ -1,6 +1,9 @@
 package com.example.weathernow;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +22,17 @@ public class CityDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityCityDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        String cityName = getIntent().getStringExtra("CITY_NAME");
+
+        binding.cityName.setText(cityName);
+
+        binding.backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 
 

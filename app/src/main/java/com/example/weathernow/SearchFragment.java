@@ -22,30 +22,32 @@ public class SearchFragment extends Fragment {
         binding = FragmentSearchBinding.inflate(inflater, container, false);
 
         binding.cardLondon.setOnClickListener(view -> {
-            cityDetailActivity();
+            cityDetailActivity(String.valueOf(binding.tvLondonName.getText()));
         });
 
         binding.cardNewYork.setOnClickListener(view -> {
-            cityDetailActivity();
+            cityDetailActivity(String.valueOf(binding.tvNewYorkName.getText()));
         });
 
         binding.cardSydney.setOnClickListener(view -> {
-            cityDetailActivity();
+            cityDetailActivity(String.valueOf(binding.tvSydneyName.getText()));
         });
 
         binding.cardTokyo.setOnClickListener(view -> {
-            cityDetailActivity();
+            cityDetailActivity(String.valueOf(binding.tvTokyoName.getText()));
         });
 
         binding.cardToronto.setOnClickListener(view -> {
-            cityDetailActivity();
+            cityDetailActivity(String.valueOf(binding.tvTorontoName.getText()));
         });
         return binding.getRoot();
     }
 
-    public void cityDetailActivity () {
+    public void cityDetailActivity (String cityName) {
         Intent intent = new Intent(getContext(), CityDetail.class);
+        intent.putExtra("CITY_NAME", cityName);
         startActivity(intent);
+
     }
 
 }
