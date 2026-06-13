@@ -4,16 +4,14 @@ plugins {
 
 android {
     namespace = "com.example.weathernow"
-    compileSdk {
-        version = release(37)
-    }
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "com.example.weathernow"
-        minSdk = 37
+        minSdk = 26
         targetSdk = 37
         versionCode = 1
-        versionName = "1.0"
+        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -27,13 +25,13 @@ android {
             )
         }
     }
+    buildFeatures {
+        viewBinding = true
+        buildConfig = true
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    buildFeatures {
-        viewBinding = true
     }
 }
 
@@ -41,7 +39,6 @@ dependencies {
     implementation(libs.activity.ktx)
     implementation(libs.appcompat)
     implementation(libs.constraintlayout)
-    implementation(libs.fragment)
     implementation(libs.material)
     implementation(libs.recyclerview)
     testImplementation(libs.junit)
