@@ -9,7 +9,6 @@
     android:orientation="vertical"
     tools:context=".CityDetail">
 
-    <!-- Header Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,7 +54,6 @@
             android:paddingHorizontal="16dp"
             android:paddingTop="16dp">
 
-            <!-- Main Temperature Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
