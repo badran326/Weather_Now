@@ -40,6 +40,29 @@
     <string name="rainy">Rainy</string>
     <string name="search_for_a_city">Search for a city...</string>
 
+    <!-- Splash Screen -->
+    <string name="tagline">Your personal city weather</string>
+
+    <!-- Saved Fragment -->
+    <string name="no_saved_cities">No saved cities yet</string>
+    <string name="save_city_hint">Search for a city and tap the bookmark icon on the weather dashboard to save it here.</string>
+
+    <!-- Settings Fragment -->
+    <string name="settings_about">ABOUT</string>
+    <string name="settings_actions">ACTIONS</string>
+    <string name="settings_version">Version</string>
+    <string name="settings_send_feedback">Send Feedback</string>
+    <string name="settings_email_desc">Open your default email app</string>
+    <string name="settings_view_github">View on GitHub</string>
+    <string name="settings_browser_desc">Open in your browser</string>
+    <string name="settings_share_app">Share App</string>
+    <string name="settings_share_desc">Share with friends</string>
+    <string name="settings_share_message">Check out this amazing Weather app: WeatherNow!</string>
+    <string name="settings_share_via">Share via</string>
+    <string name="error_no_email">No email app installed</string>
+    <string name="feedback_subject">WeatherNow Feedback</string>
+    <string name="support_email">support@weathernow.com</string>
+
     <string name="temp_14_deg">14</string>
     <string name="temp_c_unit">°C</string>
     <string name="temp_f">57.2°F</string>

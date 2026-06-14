@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             style="@style/TextAppearance.MyApp.Text"
-            android:text="Your personal city weather"
+            android:text="@string/tagline"
             android:textColor="@color/text_secondary"
             android:textSize="16sp" />
 

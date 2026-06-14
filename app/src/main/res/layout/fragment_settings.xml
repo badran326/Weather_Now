@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="ABOUT"
+                android:text="@string/settings_about"
                 android:textColor="?attr/colorOnSurfaceVariant"
                 android:textSize="12sp"
                 android:textStyle="bold"
@@ -53,7 +53,7 @@
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="WeatherNow"
+                    android:text="@string/app_name"
                     android:layout_alignParentStart="true"
                     android:textColor="?attr/colorOnSurface"
                     android:textSize="16sp"
@@ -64,7 +64,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:text="Version"
+                    android:text="@string/settings_version"
                     android:textColor="?attr/colorOnSurfaceVariant"
                     android:textSize="14sp"
                     android:textAppearance="@style/TextAppearance.MyApp.Text" />
@@ -81,7 +81,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ACTIONS"
+                android:text="@string/settings_actions"
                 android:padding="16dp"
                 android:background="?attr/colorSurface"
                 android:textColor="?attr/colorOnSurfaceVariant"
@@ -116,7 +116,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Send Feedback"
+                        android:text="@string/settings_send_feedback"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="16sp"
                         android:textAppearance="@style/TextAppearance.MyApp.Text" />
@@ -124,7 +124,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Open your default email app"
+                        android:text="@string/settings_email_desc"
                         android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="12sp"
                         android:textAppearance="@style/TextAppearance.MyApp.Text" />
@@ -158,7 +158,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="View on GitHub"
+                        android:text="@string/settings_view_github"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="16sp"
                         android:textAppearance="@style/TextAppearance.MyApp.Text" />
@@ -166,7 +166,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Open in your browser"
+                        android:text="@string/settings_browser_desc"
                         android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="12sp"
                         android:textAppearance="@style/TextAppearance.MyApp.Text" />
@@ -200,7 +200,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Share App"
+                        android:text="@string/settings_share_app"
                         android:textColor="?attr/colorOnSurface"
                         android:textSize="16sp"
                         android:textAppearance="@style/TextAppearance.MyApp.Text" />
@@ -208,7 +208,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Share with friends"
+                        android:text="@string/settings_share_desc"
                         android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="12sp"
                         android:textAppearance="@style/TextAppearance.MyApp.Text" />
