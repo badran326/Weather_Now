@@ -55,7 +55,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!-- London Card -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card_london"
                     android:layout_width="match_parent"
@@ -139,7 +138,6 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Toronto Card -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card_toronto"
                     android:layout_width="match_parent"
@@ -223,7 +221,6 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Tokyo Card -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card_tokyo"
                     android:layout_width="match_parent"
@@ -307,7 +304,6 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- Sydney Card -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card_sydney"
                     android:layout_width="match_parent"
@@ -391,7 +387,6 @@
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
-                <!-- New York Card -->
                 <com.google.android.material.card.MaterialCardView
                     android:id="@+id/card_new_york"
                     android:layout_width="match_parent"
