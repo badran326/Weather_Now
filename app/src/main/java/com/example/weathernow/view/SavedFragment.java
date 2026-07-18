@@ -1,5 +1,5 @@
 
-package com.example.weathernow;
+package com.example.weathernow.view;
 
 import android.os.Bundle;
 

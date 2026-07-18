@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:background="?android:attr/windowBackground"
     android:orientation="vertical"
-    tools:context=".CityDetail">
+    tools:context=".view.CityDetail"
+    tools:theme="@style/Theme.WeatherNow">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,287 +18,305 @@
         android:paddingHorizontal="24dp"
         android:paddingBottom="24dp">
 
-        <TextView
+        <ImageView
             android:id="@+id/back_btn"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:background="@drawable/baseline_arrow_back_24"
-            android:backgroundTint="?attr/colorOnPrimary"
+            android:src="@drawable/baseline_arrow_back_24"
+            app:tint="?attr/colorOnPrimary"
             android:layout_margin="8dp"
-            android:textColor="?attr/colorOnPrimary"/>
+            android:contentDescription="@string/back_btn_desc"/>
 
         <TextView
             android:id="@+id/city_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/london"
-            android:textColor="?attr/colorOnPrimary"
+            android:text="@string/cityName"
+            android:textColor="?attr/colorOnSurfaceVariant"
             android:textAppearance="@style/TextAppearance.MyApp.HeadlineLarge" />
 
         <TextView
+            android:id="@+id/city_location"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/london_location"
+            android:text="@string/cityLocation"
             android:textColor="?attr/android:textColorSecondary"
             android:textSize="14sp"
             android:textAppearance="@style/TextAppearance.MyApp.Text" />
     </LinearLayout>
 
-    <ScrollView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <LinearLayout
+        <ScrollView
+            android:id="@+id/weather_content"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="16dp"
-            android:paddingTop="16dp">
+            android:layout_height="match_parent">
 
-            <com.google.android.material.card.MaterialCardView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                app:cardBackgroundColor="?attr/colorSurface"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="0dp"
-                app:strokeWidth="0dp">
+                android:orientation="vertical"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="16dp">
 
-                <LinearLayout
+                <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    app:cardBackgroundColor="?attr/colorSurface"
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="0dp"
+                    app:strokeWidth="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingVertical="48dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/weather_condition"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/condition"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="18sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+
+                            <ImageView
+                                android:id="@+id/icon_url"
+                                android:layout_width="64dp"
+                                android:layout_height="64dp"
+                                android:layout_marginStart="8dp"
+                                app:tint="?attr/colorOnSurface"
+                                android:contentDescription="@string/weather_icon"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/temp_c"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/temp_14_deg"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="100sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/temp_f"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/temp_f"
+                            android:textColor="?attr/colorOnSurfaceVariant"
+                            android:textSize="16sp"
+                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:columnCount="2"
+                    android:rowCount="2">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="16dp"
+                        app:cardBackgroundColor="?attr/colorSurface"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/humidity"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+
+                            <TextView
+                                android:id="@+id/humidity"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@string/humidity_val"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="24sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginBottom="16dp"
+                        app:cardBackgroundColor="?attr/colorSurface"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/wind"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+
+                            <TextView
+                                android:id="@+id/wind_kph"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@string/wind_val"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="24sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="16dp"
+                        app:cardBackgroundColor="?attr/colorSurface"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/feels_like"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+
+                            <TextView
+                                android:id="@+id/feelLike"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@string/feels_like_val"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="24sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginBottom="16dp"
+                        app:cardBackgroundColor="?attr/colorSurface"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:strokeWidth="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="16dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/uv_index"
+                                android:textColor="?attr/colorOnSurfaceVariant"
+                                android:textSize="12sp"
+                                android:textStyle="bold"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+
+                            <TextView
+                                android:id="@+id/uv_index"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@string/uv_index_val"
+                                android:textColor="?attr/colorOnSurface"
+                                android:textSize="24sp"
+                                android:textAppearance="@style/TextAppearance.MyApp.Text" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </GridLayout>
+
+                <TextView
+                    android:id="@+id/last_update"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="32dp"
                     android:gravity="center"
-                    android:orientation="vertical"
-                    android:paddingVertical="48dp">
+                    android:text="@string/last_updated"
+                    android:textColor="?attr/android:textColorSecondary"
+                    android:textSize="14sp"
+                    android:textAppearance="@style/TextAppearance.MyApp.Text" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+            </LinearLayout>
+        </ScrollView>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/cloudy"
-                            android:textColor="?attr/colorOnSurfaceVariant"
-                            android:textSize="18sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:backgroundTint="?attr/colorOnSurface"
-                            android:background="@drawable/baseline_cloud_24"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/temp_14_deg"
-                            android:textColor="?attr/colorOnSurface"
-                            android:textSize="100sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="24dp"
-                            android:text="@string/temp_c_unit"
-                            android:textColor="?attr/colorOnSurface"
-                            android:textSize="40sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/temp_f"
-                        android:textColor="?attr/colorOnSurfaceVariant"
-                        android:textSize="16sp"
-                        android:textAppearance="@style/TextAppearance.MyApp.Text" />
-
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:rowCount="2">
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="?attr/colorSurface"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="0dp"
-                    app:strokeWidth="0dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/humidity"
-                            android:textColor="?attr/colorOnSurfaceVariant"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="@string/humidity_val"
-                            android:textColor="?attr/colorOnSurface"
-                            android:textSize="24sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="?attr/colorSurface"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="0dp"
-                    app:strokeWidth="0dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/wind"
-                            android:textColor="?attr/colorOnSurfaceVariant"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="@string/wind_val"
-                            android:textColor="?attr/colorOnSurface"
-                            android:textSize="24sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="?attr/colorSurface"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="0dp"
-                    app:strokeWidth="0dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/feels_like"
-                            android:textColor="?attr/colorOnSurfaceVariant"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="@string/feels_like_val"
-                            android:textColor="?attr/colorOnSurface"
-                            android:textSize="24sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginBottom="16dp"
-                    app:cardBackgroundColor="?attr/colorSurface"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="0dp"
-                    app:strokeWidth="0dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/uv_index"
-                            android:textColor="?attr/colorOnSurfaceVariant"
-                            android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="@string/uv_index_val"
-                            android:textColor="?attr/colorOnSurface"
-                            android:textSize="24sp"
-                            android:textAppearance="@style/TextAppearance.MyApp.Text" />
-                    </LinearLayout>
-                </com.google.android.material.card.MaterialCardView>
-
-            </GridLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="32dp"
-                android:gravity="center"
-                android:text="@string/last_updated"
-                android:textColor="?attr/android:textColorSecondary"
-                android:textSize="14sp"
-                android:textAppearance="@style/TextAppearance.MyApp.Text" />
-
-        </LinearLayout>
-    </ScrollView>
-
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/white"
+            android:elevation="20dp"
+            android:translationZ="20dp"/>
+    </FrameLayout>
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.weathernow;
+package com.example.weathernow.view;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.weathernow.BuildConfig;
 import com.example.weathernow.databinding.FragmentSettingsBinding;
 
 public class SettingsFragment extends Fragment {

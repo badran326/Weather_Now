@@ -1,6 +1,8 @@
-package com.example.weathernow;
+package com.example.weathernow.view;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,8 +12,16 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
+import com.bumptech.glide.Glide;
+import com.example.weathernow.R;
 import com.example.weathernow.databinding.ActivityMainBinding;
+import com.example.weathernow.model.WeatherData;
+import com.example.weathernow.viewmodel.WeatherViewModel;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
             return true;
         });
-
     }
 
     private void switchFragment (Fragment fragment) {
