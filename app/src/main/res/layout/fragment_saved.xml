@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="No saved cities yet"
+            android:text="@string/no_saved_cities"
             android:textColor="?attr/colorOnSurface"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Search for a city and tap the bookmark icon on the weather dashboard to save it here."
+            android:text="@string/save_city_hint"
             android:textColor="?attr/colorOnSurfaceVariant"
             android:textSize="14sp"
             android:textAppearance="@style/TextAppearance.MyApp.Text" />

@@ -1,4 +1,4 @@
-package com.example.weathernow;
+package com.example.weathernow.view;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;

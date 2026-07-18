@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashActivity"
+    tools:context=".view.SplashActivity"
     android:background="@color/colorPrimary">
 
     <LinearLayout
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             style="@style/TextAppearance.MyApp.Text"
-            android:text="Your personal city weather"
+            android:text="@string/tagline"
             android:textColor="@color/text_secondary"
             android:textSize="16sp" />
 
