@@ -32,6 +32,7 @@ public class WeatherViewModel extends ViewModel {
     }
 
     public void loadWeather(WeatherLocation location) {
+        errorMessage.setValue(null);
         loading.setValue(true);
         weatherRepository.getWeather(location, new WeatherRepository.WeatherCallback() {
             @Override
