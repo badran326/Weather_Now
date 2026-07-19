@@ -65,42 +65,60 @@ public class WeatherRepository {
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                try (response) {
+                    if (response.isSuccessful()) {
+                        String json = response.body().string();
 
-                if (response.isSuccessful()) {
-                    String json = response.body().string();
-                    try {
-                        JSONObject jsonObject = new JSONObject(json);
+                        try {
+                            JSONObject jsonObject = new JSONObject(json);
 
-                        JSONObject location = jsonObject.getJSONObject("location");
-                        JSONObject current = jsonObject.getJSONObject("current");
+                            JSONObject location = jsonObject.getJSONObject("location");
+                            JSONObject current = jsonObject.getJSONObject("current");
 
-                        String locationName = location.getString("name");
-                        String region = location.getString("region");
-                        String country = location.getString("country");
+                            String locationName = location.getString("name");
+                            String region = location.getString("region");
+                            String country = location.getString("country");
 
-                        double tempC = current.getDouble("temp_c");
-                        double tempF = current.getDouble("temp_f");
-                        double windKph = current.getDouble("wind_kph");
-                        double feelsLikeC = current.getDouble("feelslike_c");
-                        double uv = current.getDouble("uv");
+                            double tempC = current.getDouble("temp_c");
+                            double tempF = current.getDouble("temp_f");
+                            double windKph = current.getDouble("wind_kph");
+                            double feelsLikeC = current.getDouble("feelslike_c");
+                            double uv = current.getDouble("uv");
 
-                        int humidity = current.getInt("humidity");
+                            int humidity = current.getInt("humidity");
+                            String lastUpdated = current.getString("last_updated");
 
-                        String lastUpdated = current.getString("last_updated");
+                            JSONObject conditionObject = current.getJSONObject("condition");
+                            String condition = conditionObject.getString("text");
 
-                        JSONObject conditionObject = current.getJSONObject("condition");
-                        String condition = conditionObject.getString("text");
+                            WeatherData weatherData = new WeatherData(
+                                    locationName,
+                                    region,
+                                    country,
+                                    tempC,
+                                    tempF,
+                                    condition,
+                                    windKph,
+                                    feelsLikeC,
+                                    uv,
+                                    humidity,
+                                    lastUpdated
+                            );
 
-                        WeatherData weatherData = new WeatherData(locationName, region, country, tempC, tempF, condition, windKph, feelsLikeC, uv, humidity, lastUpdated);
+                            callback.onSuccess(weatherData);
 
-                        callback.onSuccess(weatherData);
-
-
-                    } catch (JSONException e) {
-                        callback.onError(e.getMessage() != null ? e.getMessage() : "Network request failed.");
+                        } catch (JSONException e) {
+                            callback.onError(
+                                    e.getMessage() != null
+                                            ? e.getMessage()
+                                            : "Unable to read weather data."
+                            );
+                        }
+                    } else {
+                        callback.onError(
+                                "Weather request failed. Error code: " + response.code()
+                        );
                     }
-                } else {
-                    callback.onError("Weather request failed. Error code: " + response.code());
                 }
             }
         });

@@ -125,7 +125,7 @@ public class CityDetail extends AppCompatActivity {
                     );
                     binding.weatherCondition.setText(weatherData.getCondition());
 
-                    binding.iconUrl.setImageResource(R.drawable.baseline_cloud_24);
+                    updateWeatherIcon(weatherData.getCondition());
                 }
             }
         });
@@ -162,5 +162,37 @@ public class CityDetail extends AppCompatActivity {
         });
     }
 
+    private void updateWeatherIcon(String condition) {
+        String weatherCondition = condition.toLowerCase(Locale.ROOT);
+
+        if (weatherCondition.contains("sunny")
+                || weatherCondition.contains("clear")) {
+
+            binding.iconUrl.setImageResource(
+                    R.drawable.outline_clear_day_24
+            );
+
+        } else if (weatherCondition.contains("rain")
+                || weatherCondition.contains("drizzle")) {
+
+            binding.iconUrl.setImageResource(
+                    R.drawable.baseline_water_drop_24
+            );
+
+        } else if (weatherCondition.contains("snow")
+                || weatherCondition.contains("sleet")
+                || weatherCondition.contains("ice")) {
+
+            binding.iconUrl.setImageResource(
+                    R.drawable.outline_ac_unit_24
+            );
+
+        } else {
+
+            binding.iconUrl.setImageResource(
+                    R.drawable.baseline_cloud_24
+            );
+        }
+    }
 
 }
