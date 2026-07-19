@@ -14,7 +14,7 @@
         android:paddingBottom="24dp"
         android:paddingStart="24dp"
         android:paddingEnd="24dp"
-        app:title="@string/app_name"
+        app:title="@string/settings"
         app:titleTextColor="?attr/colorOnPrimary"
         app:titleTextAppearance="@style/TextAppearance.MyApp.HeadlineLarge"
         android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar" />
