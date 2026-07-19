@@ -44,4 +44,5 @@
     <string name="condition">.......</string>
     <string name="cityLocation">........</string>
     <string name="cityName">......</string>
+    <string name="unable_to_load_weather_data">Unable to load weather data.</string>
 </resources>

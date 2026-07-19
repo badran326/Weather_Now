@@ -48,4 +48,9 @@ public class WeatherViewModel extends ViewModel {
         });
     }
 
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        weatherRepository.cancelRequest();
+    }
 }

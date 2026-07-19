@@ -2,7 +2,7 @@ package com.example.weathernow.view;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
+
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,21 +38,37 @@ public class CityDetail extends AppCompatActivity {
             return insets;
         });
 
+        String cityName = getIntent()
+                .getStringExtra(SearchFragment.EXTRA_CITY_NAME);
+        String cityRegion = getIntent()
+                .getStringExtra(SearchFragment.CITY_REGION);
+        String cityCountry = getIntent()
+                .getStringExtra(SearchFragment.CITY_COUNTRY);
+        double cityLatitude = getIntent()
+                .getDoubleExtra(SearchFragment.CITY_LATITUDE, 0.0);
+        double cityLongitude = getIntent()
+                .getDoubleExtra(SearchFragment.CITY_LONGITUDE,0.0);
+        binding.cityName.setText(cityName);
+        binding.cityLocation.setText(
+                String.format(
+                        Locale.getDefault(),
+                        "%s, %s",
+                        cityRegion,
+                        cityCountry
+                )
+        );
+
+        WeatherLocation weatherLocation = new WeatherLocation(cityName, cityRegion, cityCountry, cityLatitude, cityLongitude, R.drawable.baseline_cloud_24);
+
         weatherViewModel = new ViewModelProvider(this).get(WeatherViewModel.class);
 
         weatherViewModel.getWeatherData().observe(this, new Observer<WeatherData>() {
             @Override
             public void onChanged(WeatherData weatherData) {
                 if (weatherData != null) {
-                    binding.cityName.setText(weatherData.getLocationName());
-                    binding.cityLocation.setText(
-                            String.format(
-                                    Locale.getDefault(),
-                                    "%s, %s",
-                                    weatherData.getRegion(),
-                                    weatherData.getCountry()
-                            )
-                    );
+
+                    binding.weatherContent.setVisibility(View.VISIBLE);
+                    binding.errorCard.setVisibility(View.GONE);
 
                     binding.tempC.setText(
                             String.format(
@@ -125,7 +141,9 @@ public class CityDetail extends AppCompatActivity {
             @Override
             public void onChanged(String errorMessage) {
                 if (errorMessage != null) {
-                    Toast.makeText(CityDetail.this, errorMessage, Toast.LENGTH_SHORT).show();
+                    binding.errorMessage.setText(errorMessage);
+                    binding.errorCard.setVisibility(View.VISIBLE);
+                    binding.weatherContent.setVisibility(View.GONE);
                 }
             }
         });
@@ -134,23 +152,13 @@ public class CityDetail extends AppCompatActivity {
             public void onChanged(Boolean isLoading) {
                 if (isLoading) {
                     binding.progressBar.setVisibility(View.VISIBLE);
+                    binding.errorCard.setVisibility(View.GONE);
+                    binding.weatherContent.setVisibility(View.GONE);
                 } else {
                     binding.progressBar.setVisibility(View.GONE);
                 }
             }
         });
-        String cityName = getIntent()
-                .getStringExtra(SearchFragment.EXTRA_CITY_NAME);
-        String cityRegion = getIntent()
-                .getStringExtra(SearchFragment.CITY_REGION);
-        String cityCountry = getIntent()
-                .getStringExtra(SearchFragment.CITY_COUNTRY);
-        double cityLatitude = getIntent()
-                .getDoubleExtra(SearchFragment.CITY_LATITUDE, 0.0);
-        double cityLongitude = getIntent()
-                .getDoubleExtra(SearchFragment.CITY_LONGITUDE,0.0);
-
-        WeatherLocation weatherLocation = new WeatherLocation(cityName, cityRegion, cityCountry, cityLatitude, cityLongitude, R.drawable.baseline_cloud_24);
         weatherViewModel.loadWeather(weatherLocation);
 
 

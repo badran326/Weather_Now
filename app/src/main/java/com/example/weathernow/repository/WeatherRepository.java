@@ -1,6 +1,8 @@
 package com.example.weathernow.repository;
 
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import com.example.weathernow.BuildConfig;
@@ -22,6 +24,7 @@ import okhttp3.Response;
 public class WeatherRepository {
 
     private final OkHttpClient client;
+    private Call call;
 
     public WeatherRepository() {
         client = new OkHttpClient();
@@ -33,16 +36,14 @@ public class WeatherRepository {
     }
 
     public void getWeather(WeatherLocation location, WeatherCallback callback) {
-        double latitude = location.getLatitude();
-        double longitude = location.getLongitude();
+        String cityName = location.getCityName();
 
-        String coordinates = latitude + "," + longitude;
         HttpUrl baseUrl = new HttpUrl.Builder()
                 .scheme("https")
                 .host("api.weatherapi.com")
                 .addPathSegment("v1")
                 .addPathSegment("current.json")
-                .addQueryParameter("q", coordinates)
+                .addQueryParameter("q", cityName)
                 .addQueryParameter("aqi", "no")
                 .addQueryParameter("key", BuildConfig.WEATHER_API_KEY)
                 .build();
@@ -51,9 +52,14 @@ public class WeatherRepository {
                 .url(baseUrl)
                 .build();
 
-        client.newCall(request).enqueue(new Callback() {
+        call = client.newCall(request);
+
+        call.enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                if (call.isCanceled()) {
+                    return;
+                }
                 callback.onError(e.getMessage() != null ? e.getMessage() : "Network request failed.");
             }
 
@@ -101,4 +107,11 @@ public class WeatherRepository {
         });
     }
 
+    public void cancelRequest() {
+        Log.i("WeatherRepository", "method is reachable");
+
+        if (call != null && !call.isCanceled()) {
+            call.cancel();
+        }
+    }
 }

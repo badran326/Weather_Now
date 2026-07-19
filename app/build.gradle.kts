@@ -1,16 +1,7 @@
-import java.util.Properties
-
 plugins {
     alias(libs.plugins.android.application)
 }
-
-val localProperties = Properties()
-
-localProperties.load(rootProject.file("local.properties").inputStream())
-
-val weatherApiKey =
-    localProperties.getProperty("WEATHER_API_KEY")
-        ?: error("WEATHER_API_KEY is missing from local.properties")
+val weatherApiKey ="5dbaea406fcc446e9dc165711261707"
 
 android {
     namespace = "com.example.weathernow"
