@@ -23,11 +23,10 @@ import okhttp3.Response;
 
 public class WeatherRepository {
 
-    private final OkHttpClient client;
+    private static final OkHttpClient client = new OkHttpClient();
     private Call call;
 
     public WeatherRepository() {
-        client = new OkHttpClient();
     }
 
     public interface WeatherCallback {
