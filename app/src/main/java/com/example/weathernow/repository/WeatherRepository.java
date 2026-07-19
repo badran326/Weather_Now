@@ -90,9 +90,8 @@ public class WeatherRepository {
 
                         JSONObject conditionObject = current.getJSONObject("condition");
                         String condition = conditionObject.getString("text");
-                        String iconUrl = conditionObject.getString("icon");
 
-                        WeatherData weatherData = new WeatherData(locationName, region, country, tempC, tempF, condition, windKph, feelsLikeC, uv, humidity, lastUpdated, iconUrl);
+                        WeatherData weatherData = new WeatherData(locationName, region, country, tempC, tempF, condition, windKph, feelsLikeC, uv, humidity, lastUpdated);
 
                         callback.onSuccess(weatherData);
 

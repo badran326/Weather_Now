@@ -13,9 +13,8 @@ public class WeatherData {
     private final double uv;
     private final int humidity;
     private final String lastUpdated;
-    private  final String iconUrl;
 
-    public WeatherData(String locationName, String region, String country, double temperatureCelsius, double temperatureFahrenheit, String condition, double windKph, double feelsLikeCelsius, double uv, int humidity, String lastUpdated, String iconUrl
+    public WeatherData(String locationName, String region, String country, double temperatureCelsius, double temperatureFahrenheit, String condition, double windKph, double feelsLikeCelsius, double uv, int humidity, String lastUpdated
     ) {
         this.locationName = locationName;
         this.region = region;
@@ -28,7 +27,6 @@ public class WeatherData {
         this.uv = uv;
         this.humidity = humidity;
         this.lastUpdated = lastUpdated;
-        this.iconUrl = iconUrl;
     }
 
     public String getLocationName() {
@@ -75,7 +73,4 @@ public class WeatherData {
         return lastUpdated;
     }
 
-    public String getIconUrl() {
-        return iconUrl;
-    }
 }

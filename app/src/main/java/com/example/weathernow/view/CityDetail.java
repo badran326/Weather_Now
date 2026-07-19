@@ -12,7 +12,6 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.bumptech.glide.Glide;
 import com.example.weathernow.R;
 import com.example.weathernow.databinding.ActivityCityDetailBinding;
 import com.example.weathernow.model.WeatherData;
@@ -125,15 +124,8 @@ public class CityDetail extends AppCompatActivity {
                             )
                     );
                     binding.weatherCondition.setText(weatherData.getCondition());
-                    String iconUrl = weatherData.getIconUrl();
 
-                    if (iconUrl != null && iconUrl.startsWith("//")) {
-                        iconUrl = "https:" + iconUrl;
-                    }
-
-                    Glide.with(CityDetail.this)
-                            .load(iconUrl)
-                            .into(binding.iconUrl);
+                    binding.iconUrl.setImageResource(R.drawable.baseline_cloud_24);
                 }
             }
         });

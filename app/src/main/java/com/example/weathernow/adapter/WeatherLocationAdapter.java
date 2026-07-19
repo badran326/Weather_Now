@@ -66,9 +66,6 @@ public class WeatherLocationAdapter
 
             binding.tvRegion.setText(locationText);
 
-            binding.tvTemperature.setText("--°");
-            binding.tvCondition.setText("Tap for details");
-
             binding.imageWeatherIcon.setImageResource(
                     location.getIconResource()
             );
