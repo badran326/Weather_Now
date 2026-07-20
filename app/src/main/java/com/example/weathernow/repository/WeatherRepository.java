@@ -59,7 +59,7 @@ public class WeatherRepository {
                 if (call.isCanceled()) {
                     return;
                 }
-                callback.onError(e.getMessage() != null ? e.getMessage() : "Network request failed.");
+                callback.onError("Looks like the clouds ate our connection! Please check your internet and try again.");
             }
 
             @Override
