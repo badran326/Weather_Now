@@ -17,6 +17,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.weathernow.BuildConfig;
 import com.example.weathernow.databinding.FragmentSettingsBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SettingsFragment extends Fragment {
 
@@ -35,6 +37,19 @@ public class SettingsFragment extends Fragment {
 
         binding.tvVersion.setText("Version " + BuildConfig.VERSION_NAME);
 
+        // Display the signed-in user's email
+        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        if (currentUser != null && currentUser.getEmail() != null) {
+            binding.tvUserEmail.setText(currentUser.getEmail());
+        } else {
+            binding.tvUserEmail.setText("No user signed in");
+        }
+
+        // Sign out
+        binding.btnSignOut.setOnClickListener(v -> signOut());
+
+        // Existing Assignment 1 actions
         binding.btnSendFeedback.setOnClickListener(v -> sendFeedback());
         binding.btnViewGithub.setOnClickListener(v -> viewOnGithub());
         binding.btnShareApp.setOnClickListener(v -> shareApp());
@@ -64,6 +79,30 @@ public class SettingsFragment extends Fragment {
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT, "Check out this amazing Weather app: WeatherNow!");
         startActivity(Intent.createChooser(intent, "Share via"));
+    }
+
+    private void signOut() {
+
+        FirebaseAuth.getInstance().signOut();
+
+        Toast.makeText(
+                requireContext(),
+                "Signed out successfully",
+                Toast.LENGTH_SHORT
+        ).show();
+
+        Intent intent = new Intent(
+                requireContext(),
+                LoginActivity.class
+        );
+
+        intent.setFlags(
+                Intent.FLAG_ACTIVITY_NEW_TASK
+                        | Intent.FLAG_ACTIVITY_CLEAR_TASK
+        );
+
+        startActivity(intent);
+        requireActivity().finish();
     }
 
     @Override
