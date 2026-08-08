@@ -11,12 +11,15 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import android.widget.Toast;
 
 import com.example.weathernow.R;
 import com.example.weathernow.databinding.ActivityCityDetailBinding;
 import com.example.weathernow.model.WeatherData;
 import com.example.weathernow.model.WeatherLocation;
 import com.example.weathernow.viewmodel.WeatherViewModel;
+import com.example.weathernow.model.SavedLocation;
+import com.example.weathernow.repository.SavedLocationRepository;
 
 import java.util.Locale;
 
@@ -24,6 +27,10 @@ public class CityDetail extends AppCompatActivity {
 
     ActivityCityDetailBinding binding;
     private WeatherViewModel weatherViewModel;
+
+    private SavedLocationRepository savedLocationRepository;
+    private SavedLocation currentLocation;
+    private boolean isLocationSaved = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +54,15 @@ public class CityDetail extends AppCompatActivity {
                 .getDoubleExtra(SearchFragment.CITY_LATITUDE, 0.0);
         double cityLongitude = getIntent()
                 .getDoubleExtra(SearchFragment.CITY_LONGITUDE,0.0);
+        currentLocation = new SavedLocation(
+                cityName,
+                cityRegion,
+                cityCountry,
+                cityLatitude,
+                cityLongitude
+        );
+
+        savedLocationRepository = new SavedLocationRepository();
         binding.cityName.setText(cityName);
         binding.cityLocation.setText(
                 String.format(
@@ -154,12 +170,149 @@ public class CityDetail extends AppCompatActivity {
         weatherViewModel.loadWeather(weatherLocation);
 
 
-        binding.backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getOnBackPressedDispatcher().onBackPressed();
-            }
-        });
+        binding.backBtn.setOnClickListener(view -> getOnBackPressedDispatcher().onBackPressed());
+
+        checkSavedStatus();
+
+        binding.bookmarkBtn.setOnClickListener(v ->
+                toggleSavedLocation()
+        );
+    }
+
+    private void checkSavedStatus() {
+
+        savedLocationRepository.isLocationSaved(
+                currentLocation,
+                new SavedLocationRepository.StatusCallback() {
+
+                    @Override
+                    public void onResult(boolean isSaved) {
+
+                        isLocationSaved = isSaved;
+                        updateBookmarkIcon();
+                    }
+
+                    @Override
+                    public void onError(String message) {
+
+                        Toast.makeText(
+                                CityDetail.this,
+                                message,
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
+                }
+        );
+    }
+
+    private void toggleSavedLocation() {
+
+        if (isLocationSaved) {
+            removeLocation();
+        } else {
+            saveLocation();
+        }
+    }
+
+    private void saveLocation() {
+
+        savedLocationRepository.saveLocation(
+                currentLocation,
+                new SavedLocationRepository.SaveCallback() {
+
+                    @Override
+                    public void onSaved() {
+
+                        isLocationSaved = true;
+                        updateBookmarkIcon();
+
+                        Toast.makeText(
+                                CityDetail.this,
+                                "Location saved",
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
+
+                    @Override
+                    public void onAlreadySaved() {
+
+                        isLocationSaved = true;
+                        updateBookmarkIcon();
+
+                        Toast.makeText(
+                                CityDetail.this,
+                                "Location is already saved",
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
+
+                    @Override
+                    public void onError(String message) {
+
+                        Toast.makeText(
+                                CityDetail.this,
+                                message,
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
+                }
+        );
+    }
+
+    private void removeLocation() {
+
+        savedLocationRepository.removeLocation(
+                currentLocation,
+                new SavedLocationRepository.RemoveCallback() {
+
+                    @Override
+                    public void onRemoved() {
+
+                        isLocationSaved = false;
+                        updateBookmarkIcon();
+
+                        Toast.makeText(
+                                CityDetail.this,
+                                "Location removed",
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
+
+                    @Override
+                    public void onError(String message) {
+
+                        Toast.makeText(
+                                CityDetail.this,
+                                message,
+                                Toast.LENGTH_SHORT
+                        ).show();
+                    }
+                }
+        );
+    }
+
+    private void updateBookmarkIcon() {
+
+        if (isLocationSaved) {
+
+            binding.bookmarkBtn.setImageResource(
+                    R.drawable.baseline_bookmark_24
+            );
+
+            binding.bookmarkBtn.setContentDescription(
+                    "Remove saved location"
+            );
+
+        } else {
+
+            binding.bookmarkBtn.setImageResource(
+                    R.drawable.baseline_bookmark_border_24
+            );
+
+            binding.bookmarkBtn.setContentDescription(
+                    "Save location"
+            );
+        }
     }
 
     private void updateWeatherIcon(String condition) {
