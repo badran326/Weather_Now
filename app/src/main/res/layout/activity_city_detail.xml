@@ -6,7 +6,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?android:attr/windowBackground"
+    android:background="@color/header_navy"
     android:orientation="vertical"
     tools:context=".view.CityDetail">
 
@@ -15,8 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/header_navy"
-        android:orientation="horizontal"
         android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:paddingStart="14dp"
         android:paddingTop="10dp"
         android:paddingEnd="14dp"
@@ -35,28 +35,28 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/city_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="2dp"
-            android:text="Toronto"
-            android:textColor="?attr/colorOnPrimary"
-            android:textSize="22sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/city_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="2dp"
+                android:text="Toronto"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/city_location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:layout_marginTop="2dp"
-            android:text="Ontario, Canada"
-            android:textColor="#B9C6D8"
-            android:textSize="13sp" />
+            <TextView
+                android:id="@+id/city_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginTop="2dp"
+                android:text="Ontario, Canada"
+                android:textColor="?attr/colorOnPrimary"
+                android:textSize="13sp" />
 
         </LinearLayout>
 
@@ -74,7 +74,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="?android:attr/windowBackground">
 
         <!-- ================= SUCCESS / WEATHER CONTENT ================= -->
         <ScrollView
@@ -201,8 +202,8 @@
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        android:layout_weight="1"
                         android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
                         app:cardBackgroundColor="?attr/colorSurface"
                         app:cardCornerRadius="14dp"
                         app:cardElevation="0dp"
@@ -254,8 +255,8 @@
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        android:layout_weight="1"
                         android:layout_marginStart="6dp"
+                        android:layout_weight="1"
                         app:cardBackgroundColor="?attr/colorSurface"
                         app:cardCornerRadius="14dp"
                         app:cardElevation="0dp"
@@ -316,8 +317,8 @@
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        android:layout_weight="1"
                         android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
                         app:cardBackgroundColor="?attr/colorSurface"
                         app:cardCornerRadius="14dp"
                         app:cardElevation="0dp"
@@ -369,8 +370,8 @@
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
                         android:layout_height="110dp"
-                        android:layout_weight="1"
                         android:layout_marginStart="6dp"
+                        android:layout_weight="1"
                         app:cardBackgroundColor="?attr/colorSurface"
                         app:cardCornerRadius="14dp"
                         app:cardElevation="0dp"
