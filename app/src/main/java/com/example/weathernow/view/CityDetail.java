@@ -1,5 +1,7 @@
 package com.example.weathernow.view;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 
@@ -27,7 +29,8 @@ public class CityDetail extends AppCompatActivity {
 
     ActivityCityDetailBinding binding;
     private WeatherViewModel weatherViewModel;
-
+    private WeatherLocation weatherLocation;
+    private SharedPreferences preferences;
     private SavedLocationRepository savedLocationRepository;
     private SavedLocation currentLocation;
     private boolean isLocationSaved = false;
@@ -38,6 +41,10 @@ public class CityDetail extends AppCompatActivity {
         EdgeToEdge.enable(this);
         binding = ActivityCityDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        preferences = getSharedPreferences(
+                SettingsFragment.PREFS_NAME,
+                Context.MODE_PRIVATE
+        );
         ViewCompat.setOnApplyWindowInsetsListener(binding.main, (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -73,102 +80,199 @@ public class CityDetail extends AppCompatActivity {
                 )
         );
 
-        WeatherLocation weatherLocation = new WeatherLocation(cityName, cityRegion, cityCountry, cityLatitude, cityLongitude, R.drawable.baseline_cloud_24);
+        weatherLocation = new WeatherLocation(
+                cityName,
+                cityRegion,
+                cityCountry,
+                cityLatitude,
+                cityLongitude,
+                R.drawable.baseline_cloud_24
+        );
 
         weatherViewModel = new ViewModelProvider(this).get(WeatherViewModel.class);
 
-        weatherViewModel.getWeatherData().observe(this, new Observer<WeatherData>() {
-            @Override
-            public void onChanged(WeatherData weatherData) {
-                if (weatherData != null) {
+        weatherViewModel.getWeatherData().observe(
+                this,
+                new Observer<WeatherData>() {
 
-                    binding.weatherContent.setVisibility(View.VISIBLE);
-                    binding.errorCard.setVisibility(View.GONE);
+                    @Override
+                    public void onChanged(WeatherData weatherData) {
 
-                    binding.tempC.setText(
-                            String.format(
-                                    Locale.getDefault(),
-                                    "%.1f °C",
-                                    weatherData.getTemperatureCelsius()
-                            )
-                    );
+                        if (weatherData != null) {
 
-                    binding.tempF.setText(
-                            String.format(
-                                    Locale.getDefault(),
-                                    "%.1f °F",
-                                    weatherData.getTemperatureFahrenheit()
-                            )
-                    );
+                            // Show successful weather screen
+                            binding.weatherContent.setVisibility(View.VISIBLE);
+                            binding.loadingContainer.setVisibility(View.GONE);
+                            binding.errorContainer.setVisibility(View.GONE);
 
-                    binding.feelLike.setText(
-                            String.format(
-                                    Locale.getDefault(),
-                                    "%.1f °C",
-                                    weatherData.getFeelsLikeCelsius()
-                            )
-                    );
+                            String selectedUnit = preferences.getString(
+                                    SettingsFragment.KEY_TEMPERATURE_UNIT,
+                                    SettingsFragment.UNIT_CELSIUS
+                            );
 
-                    binding.windKph.setText(
-                            String.format(
-                                    Locale.getDefault(),
-                                    "%.1f km/h",
-                                    weatherData.getWindKph()
-                            )
-                    );
+                            if (SettingsFragment.UNIT_FAHRENHEIT.equals(selectedUnit)) {
 
-                    binding.uvIndex.setText(
-                            String.format(
-                                    Locale.getDefault(),
-                                    "%.1f",
-                                    weatherData.getUv()
-                            )
-                    );
+                                // Fahrenheit is the main temperature
+                                binding.tempC.setText(
+                                        String.format(
+                                                Locale.getDefault(),
+                                                "%.0f°",
+                                                weatherData.getTemperatureFahrenheit()
+                                        )
+                                );
 
-                    binding.humidity.setText(
-                            String.format(
-                                    Locale.getDefault(),
-                                    "%d%%",
-                                    weatherData.getHumidity()
-                            )
-                    );
-                    binding.lastUpdate.setText(
-                            String.format(
-                                    Locale.getDefault(),
-                                    "Last updated: %s",
+                                binding.tempUnit.setText("F");
+
+                                // Celsius becomes the smaller secondary temperature
+                                binding.tempF.setText(
+                                        String.format(
+                                                Locale.getDefault(),
+                                                "%.1f°C",
+                                                weatherData.getTemperatureCelsius()
+                                        )
+                                );
+
+                                double feelsLikeFahrenheit =
+                                        weatherData.getFeelsLikeCelsius() * 9.0 / 5.0 + 32.0;
+
+                                binding.feelLike.setText(
+                                        String.format(
+                                                Locale.getDefault(),
+                                                "%.0f°F",
+                                                feelsLikeFahrenheit
+                                        )
+                                );
+
+                            } else {
+
+                                // Celsius is the main temperature
+                                binding.tempC.setText(
+                                        String.format(
+                                                Locale.getDefault(),
+                                                "%.0f°",
+                                                weatherData.getTemperatureCelsius()
+                                        )
+                                );
+
+                                binding.tempUnit.setText("C");
+
+                                // Fahrenheit becomes secondary
+                                binding.tempF.setText(
+                                        String.format(
+                                                Locale.getDefault(),
+                                                "%.1f°F",
+                                                weatherData.getTemperatureFahrenheit()
+                                        )
+                                );
+
+                                binding.feelLike.setText(
+                                        String.format(
+                                                Locale.getDefault(),
+                                                "%.0f°C",
+                                                weatherData.getFeelsLikeCelsius()
+                                        )
+                                );
+                            }
+
+                            // Wind
+                            binding.windKph.setText(
+                                    String.format(
+                                            Locale.getDefault(),
+                                            "%.1f kph",
+                                            weatherData.getWindKph()
+                                    )
+                            );
+
+                            // Humidity
+                            binding.humidity.setText(
+                                    String.format(
+                                            Locale.getDefault(),
+                                            "%d%%",
+                                            weatherData.getHumidity()
+                                    )
+                            );
+
+                            // Updated time
+                            binding.lastUpdate.setText(
                                     weatherData.getLastUpdated()
-                            )
-                    );
-                    binding.weatherCondition.setText(weatherData.getCondition());
+                            );
 
-                    updateWeatherIcon(weatherData.getCondition());
+                            // Weather condition
+                            binding.weatherCondition.setText(
+                                    weatherData.getCondition()
+                            );
+
+                            updateWeatherIcon(
+                                    weatherData.getCondition()
+                            );
+                        }
+                    }
                 }
-            }
-        });
-        weatherViewModel.getErrorMessage().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(String errorMessage) {
-                if (errorMessage != null) {
-                    binding.errorMessage.setText(errorMessage);
-                    binding.errorCard.setVisibility(View.VISIBLE);
-                    binding.weatherContent.setVisibility(View.GONE);
+        );
+        weatherViewModel.getErrorMessage().observe(
+                this,
+                new Observer<String>() {
+
+                    @Override
+                    public void onChanged(String errorMessage) {
+
+                        if (errorMessage != null &&
+                                !errorMessage.isEmpty()) {
+
+                            binding.errorMessage.setText(
+                                    errorMessage
+                            );
+
+                            binding.errorContainer.setVisibility(
+                                    View.VISIBLE
+                            );
+
+                            binding.weatherContent.setVisibility(
+                                    View.GONE
+                            );
+
+                            binding.loadingContainer.setVisibility(
+                                    View.GONE
+                            );
+                        }
+                    }
                 }
-            }
-        });
-        weatherViewModel.getLoading().observe(this, new Observer<Boolean>() {
-            @Override
-            public void onChanged(Boolean isLoading) {
-                if (isLoading) {
-                    binding.progressBar.setVisibility(View.VISIBLE);
-                    binding.errorCard.setVisibility(View.GONE);
-                    binding.weatherContent.setVisibility(View.GONE);
-                } else {
-                    binding.progressBar.setVisibility(View.GONE);
+        );
+        weatherViewModel.getLoading().observe(
+                this,
+                new Observer<Boolean>() {
+
+                    @Override
+                    public void onChanged(Boolean isLoading) {
+
+                        if (Boolean.TRUE.equals(isLoading)) {
+
+                            binding.loadingContainer.setVisibility(
+                                    View.VISIBLE
+                            );
+
+                            binding.weatherContent.setVisibility(
+                                    View.GONE
+                            );
+
+                            binding.errorContainer.setVisibility(
+                                    View.GONE
+                            );
+
+                        } else {
+
+                            binding.loadingContainer.setVisibility(
+                                    View.GONE
+                            );
+                        }
+                    }
                 }
-            }
-        });
+        );
         weatherViewModel.loadWeather(weatherLocation);
 
+        binding.btnRetry.setOnClickListener(v -> {
+            weatherViewModel.loadWeather(weatherLocation);
+        });
 
         binding.backBtn.setOnClickListener(view -> getOnBackPressedDispatcher().onBackPressed());
 

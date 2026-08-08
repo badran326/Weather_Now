@@ -1,12 +1,15 @@
 package com.example.weathernow.view;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.weathernow.databinding.ActivitySplashBinding;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,6 +26,31 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences preferences =
+                getSharedPreferences(
+                        SettingsFragment.PREFS_NAME,
+                        Context.MODE_PRIVATE
+                );
+
+        String savedTheme =
+                preferences.getString(
+                        SettingsFragment.KEY_THEME,
+                        SettingsFragment.THEME_LIGHT
+                );
+
+        if (SettingsFragment.THEME_DARK.equals(savedTheme)) {
+
+            AppCompatDelegate.setDefaultNightMode(
+                    AppCompatDelegate.MODE_NIGHT_YES
+            );
+
+        } else {
+
+            AppCompatDelegate.setDefaultNightMode(
+                    AppCompatDelegate.MODE_NIGHT_NO
+            );
+        }
 
         binding = ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

@@ -5,32 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="16dp"
-    android:layout_marginTop="8dp"
+    android:layout_marginTop="6dp"
     android:layout_marginEnd="16dp"
-    android:layout_marginBottom="8dp"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="2dp"
-    app:cardBackgroundColor="?attr/colorSurface">
+    android:layout_marginBottom="6dp"
+    app:cardBackgroundColor="?attr/colorSurface"
+    app:cardCornerRadius="14dp"
+    app:cardElevation="0dp"
+    app:strokeColor="?attr/colorOutline"
+    app:strokeWidth="1dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="72dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:padding="16dp">
+        android:paddingStart="15dp"
+        android:paddingEnd="10dp">
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:padding="8dp"
-            android:src="@drawable/baseline_bookmark_24"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
             android:contentDescription="Saved location"
-            app:tint="?attr/colorPrimary" />
+            android:padding="7dp"
+            android:src="@drawable/baseline_bookmark_24"
+            app:tint="@color/bookmark_yellow" />
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="10dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -40,29 +43,29 @@
                 android:layout_height="wrap_content"
                 android:text="Toronto"
                 android:textColor="?attr/colorOnSurface"
-                android:textSize="17sp"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvCountry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="2dp"
                 android:text="Ontario, Canada"
                 android:textColor="?attr/colorOnSurfaceVariant"
-                android:textSize="14sp" />
+                android:textSize="13sp" />
 
         </LinearLayout>
 
         <ImageButton
             android:id="@+id/btnRemove"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:contentDescription="Remove saved location"
             android:padding="10dp"
             android:src="@drawable/baseline_delete_24"
-            app:tint="?attr/colorError" />
+            app:tint="@color/error_red" />
 
     </LinearLayout>
 

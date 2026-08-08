@@ -1,38 +1,77 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.WeatherNow" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <item name="colorPrimary">@color/headerNight</item>
+<resources>
+
+    <style name="Base.Theme.WeatherNow"
+        parent="Theme.Material3.DayNight.NoActionBar">
+
+        <!-- Keep accent blue in dark mode -->
+        <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorSecondary">@color/surfaceNight</item>
+
+        <item name="colorSecondary">@color/colorSecondary</item>
+
+        <!-- Background / Cards -->
         <item name="android:windowBackground">@color/backgroundNight</item>
         <item name="colorSurface">@color/surfaceNight</item>
+        <item name="colorSurfaceVariant">@color/surfaceSoftNight</item>
+
+        <!-- Text -->
         <item name="colorOnSurface">@color/textPrimaryNight</item>
         <item name="colorOnSurfaceVariant">@color/textSecondaryNight</item>
+
         <item name="android:textColorPrimary">@color/textPrimaryNight</item>
         <item name="android:textColorSecondary">@color/textSecondaryNight</item>
+
+        <!-- Borders -->
+        <item name="colorOutline">@color/borderNight</item>
+
+        <!-- Errors -->
+        <item name="colorError">@color/error_red</item>
+
+        <!-- Status / Navigation bars -->
+        <item name="android:statusBarColor">@color/header_navy</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <item name="android:navigationBarColor">@color/backgroundNight</item>
+        <item name="android:windowLightNavigationBar">false</item>
+
+        <!-- App font -->
+        <item name="fontFamily">@font/elmssans_variablefont_wght</item>
+
     </style>
 
-    <style name="Theme.NoSplash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+    <style name="Theme.NoSplash"
+        parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:backgroundDimEnabled">false</item>
+
     </style>
 
-    <style name="Theme.WeatherNow" parent="Base.Theme.WeatherNow" />
+
+    <style name="Theme.WeatherNow"
+        parent="Base.Theme.WeatherNow" />
+
 
     <style name="TextAppearance.MyApp.Text"
-        parent="TextAppearance.Material3.DisplayMedium">
-        <item name="android:textSize">24sp</item>
-        <item name="fontFamily">@font/merriweather_italic_variablefont</item>
+        parent="TextAppearance.Material3.BodyMedium">
+
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/elmssans_variablefont_wght</item>
+
     </style>
+
 
     <style name="TextAppearance.MyApp.HeadlineLarge"
         parent="TextAppearance.Material3.HeadlineLarge">
-        <item name="android:textSize">32sp</item>
+
+        <item name="android:textSize">24sp</item>
         <item name="android:textStyle">bold</item>
         <item name="fontFamily">@font/elmssans_variablefont_wght</item>
+
     </style>
+
 </resources>
