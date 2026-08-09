@@ -44,7 +44,7 @@
                 android:text="@string/cityName"
                 android:textColor="?attr/colorOnSurface"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:fontFamily="sans-serif-medium" />
 
             <TextView
                 android:id="@+id/tvCountry"
@@ -53,7 +53,8 @@
                 android:layout_marginTop="2dp"
                 android:text="@string/cityLocation"
                 android:textColor="?attr/colorOnSurfaceVariant"
-                android:textSize="13sp" />
+                android:textSize="12sp"
+                android:fontFamily="sans-serif" />
 
         </LinearLayout>
 
