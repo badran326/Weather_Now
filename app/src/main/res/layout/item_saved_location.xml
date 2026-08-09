@@ -4,7 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
     android:layout_marginTop="6dp"
+    android:layout_marginEnd="16dp"
     android:layout_marginBottom="6dp"
     app:cardBackgroundColor="?attr/colorSurface"
     app:cardCornerRadius="14dp"
@@ -17,20 +19,17 @@
         android:layout_height="72dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingStart="16dp"
-        android:paddingEnd="14dp">
+        android:paddingStart="15dp"
+        android:paddingEnd="10dp">
 
-        <!-- Left icon -->
         <ImageView
-            android:id="@+id/imageWeatherIcon"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:contentDescription="Location"
+            android:contentDescription="Saved location"
             android:padding="7dp"
-            android:src="@drawable/baseline_location_on_24"
-            app:tint="?attr/colorPrimary" />
+            android:src="@drawable/baseline_bookmark_24"
+            app:tint="@color/bookmark_yellow" />
 
-        <!-- City information -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -48,7 +47,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvRegion"
+                android:id="@+id/tvCountry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -58,14 +57,15 @@
 
         </LinearLayout>
 
-        <!-- Arrow -->
-        <ImageView
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:contentDescription="Open location"
-            android:padding="6dp"
-            android:src="@drawable/baseline_chevron_right_24"
-            app:tint="?attr/colorOnSurfaceVariant" />
+        <ImageButton
+            android:id="@+id/btnRemove"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Remove saved location"
+            android:padding="10dp"
+            android:src="@drawable/baseline_delete_24"
+            app:tint="@color/error_red" />
 
     </LinearLayout>
 

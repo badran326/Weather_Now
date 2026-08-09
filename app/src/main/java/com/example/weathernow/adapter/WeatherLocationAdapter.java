@@ -22,6 +22,12 @@ public class WeatherLocationAdapter
         this.listener = listener;
     }
 
+    public void updateLocations(List<WeatherLocation> newLocations) {
+        locations.clear();
+        locations.addAll(newLocations);
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public LocationViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
