@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.weathernow.R;
 import com.example.weathernow.adapter.WeatherLocationAdapter;
 import com.example.weathernow.databinding.FragmentSearchBinding;
 import com.example.weathernow.model.WeatherLocation;
@@ -174,7 +175,7 @@ public class SearchFragment extends Fragment {
                     } else if (locations.isEmpty()) {
 
                         binding.tvEmptyState.setText(
-                                "No cities found. Try another search."
+                                getString(R.string.no_cities_found)
                         );
 
                         binding.tvEmptyState.setVisibility(
@@ -232,7 +233,7 @@ public class SearchFragment extends Fragment {
         binding.progressSearch.setVisibility(View.GONE);
 
         binding.tvEmptyState.setText(
-                "Start typing to search for a city"
+                getString(R.string.search_empty_state)
         );
 
         binding.tvEmptyState.setVisibility(View.VISIBLE);

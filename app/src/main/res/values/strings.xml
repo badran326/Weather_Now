@@ -8,11 +8,52 @@
     <!-- Splash Screen -->
     <string name="tagline">Your personal city weather</string>
 
+    <!-- Auth Screens -->
+    <string name="login_subtitle">Sign in to access your saved locations</string>
+    <string name="email_label">EMAIL</string>
+    <string name="email_hint">student@college.ca</string>
+    <string name="email_hint_full">your.email@college.ca</string>
+    <string name="password_label">PASSWORD</string>
+    <string name="password_hint">••••••••</string>
+    <string name="password_hint_register">Min 6 characters</string>
+    <string name="confirm_password_label">CONFIRM PASSWORD</string>
+    <string name="sign_in_button">Sign In</string>
+    <string name="register_button">Register</string>
+    <string name="go_to_register">Don\'t have an account? Register</string>
+    <string name="go_to_login">Already have an account? Sign In</string>
+    <string name="register_title">Create Account</string>
+    <string name="register_subtitle">Register to save your favourite locations</string>
+    <string name="login_tech_info">🔒  Firebase Auth · signInWithEmailAndPassword()</string>
+    <string name="register_tech_info">🔒  Firebase Auth · createUserWithEmailAndPassword()</string>
+
     <!-- Saved Fragment -->
+    <string name="saved_locations_title">Saved Locations</string>
     <string name="no_saved_cities">No saved cities yet</string>
-    <string name="save_city_hint">Search for a city and tap the bookmark icon on the weather dashboard to save it here.</string>
+    <string name="save_city_hint">Save a city from the weather detail screen and it will appear here.</string>
+    <string name="saved_tech_info">☁  Saved locations sync with Cloud Firestore</string>
+
+    <!-- Search Fragment -->
+    <string name="search_hint_input">Search for a city</string>
+    <string name="search_tech_info">Search powered by Open-Meteo · 300ms debounce</string>
+    <string name="search_empty_state">Start typing to search for a city</string>
 
     <!-- Settings Fragment -->
+    <string name="settings_account">ACCOUNT</string>
+    <string name="settings_signed_in_firebase">Signed in with Firebase</string>
+    <string name="settings_preferences">PREFERENCES</string>
+    <string name="settings_temp_unit">Temperature Unit</string>
+    <string name="settings_temp_unit_desc">Display in Celsius or Fahrenheit</string>
+    <string name="unit_c">°C</string>
+    <string name="unit_f">°F</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_theme_desc">Light or Dark mode</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_dark">Dark</string>
+    <string name="settings_app_header">APP</string>
+    <string name="settings_sign_out">Sign Out</string>
+    <string name="settings_more">MORE</string>
+    <string name="settings_tech_info">⚙  SharedPreferences for settings · Firebase Authentication</string>
+
     <string name="settings_about">ABOUT</string>
     <string name="settings_actions">ACTIONS</string>
     <string name="settings_version">Version</string>
@@ -45,4 +86,60 @@
     <string name="cityLocation">........</string>
     <string name="cityName">......</string>
     <string name="unable_to_load_weather_data">Unable to load weather data.</string>
+    <!-- City Detail Activity -->
+    <string name="save_location_desc">Save location</string>
+    <string name="unit_c_label">C</string>
+    <string name="live_weather_data">Live weather data</string>
+    <string name="wind_speed_label">WIND SPEED</string>
+    <string name="updated_label">UPDATED</string>
+    <string name="city_detail_tech_stack">📘  MVVM + OKHTTP</string>
+    <string name="city_detail_data_flow_brief">View → ViewModel → Repository → Weather API</string>
+    <string name="fetching_weather">Fetching weather data...</string>
+    <string name="requesting_weather_info">Requesting current weather information...</string>
+    <string name="data_flow_header">DATA FLOW</string>
+    <string name="data_flow_steps">1. City Detail requests weather data\n2. ViewModel updates the loading state\n3. Repository sends an OkHttp request\n4. Waiting for the weather API response...</string>
+    <string name="unable_to_load_weather">Unable to load weather</string>
+    <string name="no_internet_desc">No internet connection. Please check your network and try again.</string>
+    <string name="retry_button">Retry</string>
+    <string name="error_state_header">ERROR STATE</string>
+    <string name="error_state_steps">Network request failed\nViewModel receives the error\nLoading state becomes false\nCity Detail displays the error screen</string>
+    <string name="remove_location_desc">Remove saved location</string>
+    <string name="open_location_desc">Open location</string>
+
+    <!-- Java/Code Strings -->
+    <string name="no_user_signed_in">No user signed in</string>
+    <string name="version_format">Version %1$s</string>
+    <string name="temp_set_celsius">Temperature set to Celsius</string>
+    <string name="temp_set_fahrenheit">Temperature set to Fahrenheit</string>
+    <string name="signed_out_success">Signed out successfully</string>
+    <string name="error_no_browser">No browser available</string>
+    <string name="share_message">Check out WeatherNow!</string>
+
+    <!-- Auth Errors -->
+    <string name="error_email_required">Email is required</string>
+    <string name="error_password_required">Password is required</string>
+    <string name="error_password_length">Password must be at least 6 characters</string>
+    <string name="error_confirm_password">Please confirm your password</string>
+    <string name="error_password_mismatch">Passwords do not match</string>
+    <string name="error_sign_in_failed">Unable to sign in.</string>
+    <string name="error_registration_failed">Registration failed</string>
+    <string name="error_weak_password">Password is too weak</string>
+    <string name="error_invalid_email">Please enter a valid email address</string>
+    <string name="error_email_exists">An account already exists with this email</string>
+    <string name="success_register">Account created successfully</string>
+
+    <!-- City Detail Formatting -->
+    <string name="location_saved">Location saved</string>
+    <string name="location_already_saved">Location is already saved</string>
+    <string name="location_removed">Location removed</string>
+    <string name="temp_format">%1$.0f°</string>
+    <string name="temp_c_format">%1$.1f°C</string>
+    <string name="temp_f_format">%1$.1f°F</string>
+    <string name="feels_like_f_format">%1$.0f°F</string>
+    <string name="feels_like_c_format">%1$.0f°C</string>
+    <string name="wind_format">%1$.1f kph</string>
+    <string name="humidity_format">%1$d%%</string>
+
+    <string name="no_cities_found">No cities found. Try another search.</string>
+
 </resources>

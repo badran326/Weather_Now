@@ -115,7 +115,7 @@ public class SettingsFragment extends Fragment {
         } else {
 
             binding.tvUserEmail.setText(
-                    "No user signed in"
+                    getString(R.string.no_user_signed_in)
             );
         }
     }
@@ -123,7 +123,7 @@ public class SettingsFragment extends Fragment {
     private void setupVersion() {
 
         binding.tvVersion.setText(
-                "Version " + BuildConfig.VERSION_NAME
+                getString(R.string.version_format, BuildConfig.VERSION_NAME)
         );
     }
 
@@ -183,8 +183,8 @@ public class SettingsFragment extends Fragment {
                                     selectedUnit.equals(
                                             UNIT_CELSIUS
                                     )
-                                            ? "Temperature set to Celsius"
-                                            : "Temperature set to Fahrenheit",
+                                            ? getString(R.string.temp_set_celsius)
+                                            : getString(R.string.temp_set_fahrenheit),
                                     Toast.LENGTH_SHORT
                             ).show();
                         }
@@ -263,7 +263,7 @@ public class SettingsFragment extends Fragment {
 
         Toast.makeText(
                 requireContext(),
-                "Signed out successfully",
+                getString(R.string.signed_out_success),
                 Toast.LENGTH_SHORT
         ).show();
 
@@ -294,13 +294,13 @@ public class SettingsFragment extends Fragment {
         intent.putExtra(
                 Intent.EXTRA_EMAIL,
                 new String[]{
-                        "support@weathernow.com"
+                        getString(R.string.support_email)
                 }
         );
 
         intent.putExtra(
                 Intent.EXTRA_SUBJECT,
-                "WeatherNow Feedback"
+                getString(R.string.feedback_subject)
         );
 
         try {
@@ -311,7 +311,7 @@ public class SettingsFragment extends Fragment {
 
             Toast.makeText(
                     requireContext(),
-                    "No email app installed",
+                    getString(R.string.error_no_email),
                     Toast.LENGTH_SHORT
             ).show();
         }
@@ -334,7 +334,7 @@ public class SettingsFragment extends Fragment {
 
             Toast.makeText(
                     requireContext(),
-                    "No browser available",
+                    getString(R.string.error_no_browser),
                     Toast.LENGTH_SHORT
             ).show();
         }
@@ -349,13 +349,13 @@ public class SettingsFragment extends Fragment {
 
         intent.putExtra(
                 Intent.EXTRA_TEXT,
-                "Check out WeatherNow!"
+                getString(R.string.share_message)
         );
 
         startActivity(
                 Intent.createChooser(
                         intent,
-                        "Share via"
+                        getString(R.string.settings_share_via)
                 )
         );
     }

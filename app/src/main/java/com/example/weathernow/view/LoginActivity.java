@@ -10,6 +10,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.activity.SystemBarStyle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.weathernow.R;
 import com.example.weathernow.databinding.ActivityLoginBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -52,12 +53,12 @@ public class LoginActivity extends AppCompatActivity {
         binding.tilPassword.setError(null);
 
         if (TextUtils.isEmpty(email)) {
-            binding.tilEmail.setError("Email is required");
+            binding.tilEmail.setError(getString(R.string.error_email_required));
             return;
         }
 
         if (TextUtils.isEmpty(password)) {
-            binding.tilPassword.setError("Password is required");
+            binding.tilPassword.setError(getString(R.string.error_password_required));
             return;
         }
 
@@ -76,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     } else {
-                        String message = "Unable to sign in.";
+                        String message = getString(R.string.error_sign_in_failed);
 
                         if (task.getException() != null &&
                                 task.getException().getMessage() != null) {

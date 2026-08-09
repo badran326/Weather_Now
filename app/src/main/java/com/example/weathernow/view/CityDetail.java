@@ -119,82 +119,50 @@ public class CityDetail extends AppCompatActivity {
 
                                 // Fahrenheit is the main temperature
                                 binding.tempC.setText(
-                                        String.format(
-                                                Locale.getDefault(),
-                                                "%.0f°",
-                                                weatherData.getTemperatureFahrenheit()
-                                        )
+                                        getString(R.string.temp_format, weatherData.getTemperatureFahrenheit())
                                 );
 
-                                binding.tempUnit.setText("F");
+                                binding.tempUnit.setText(getString(R.string.unit_f));
 
                                 // Celsius becomes the smaller secondary temperature
                                 binding.tempF.setText(
-                                        String.format(
-                                                Locale.getDefault(),
-                                                "%.1f°C",
-                                                weatherData.getTemperatureCelsius()
-                                        )
+                                        getString(R.string.temp_c_format, weatherData.getTemperatureCelsius())
                                 );
 
                                 double feelsLikeFahrenheit =
                                         weatherData.getFeelsLikeCelsius() * 9.0 / 5.0 + 32.0;
 
                                 binding.feelLike.setText(
-                                        String.format(
-                                                Locale.getDefault(),
-                                                "%.0f°F",
-                                                feelsLikeFahrenheit
-                                        )
+                                        getString(R.string.feels_like_f_format, feelsLikeFahrenheit)
                                 );
 
                             } else {
 
                                 // Celsius is the main temperature
                                 binding.tempC.setText(
-                                        String.format(
-                                                Locale.getDefault(),
-                                                "%.0f°",
-                                                weatherData.getTemperatureCelsius()
-                                        )
+                                        getString(R.string.temp_format, weatherData.getTemperatureCelsius())
                                 );
 
-                                binding.tempUnit.setText("C");
+                                binding.tempUnit.setText(getString(R.string.unit_c));
 
                                 // Fahrenheit becomes secondary
                                 binding.tempF.setText(
-                                        String.format(
-                                                Locale.getDefault(),
-                                                "%.1f°F",
-                                                weatherData.getTemperatureFahrenheit()
-                                        )
+                                        getString(R.string.temp_f_format, weatherData.getTemperatureFahrenheit())
                                 );
 
                                 binding.feelLike.setText(
-                                        String.format(
-                                                Locale.getDefault(),
-                                                "%.0f°C",
-                                                weatherData.getFeelsLikeCelsius()
-                                        )
+                                        getString(R.string.feels_like_c_format, weatherData.getFeelsLikeCelsius())
                                 );
                             }
 
                             // Wind
                             binding.windKph.setText(
-                                    String.format(
-                                            Locale.getDefault(),
-                                            "%.1f kph",
-                                            weatherData.getWindKph()
-                                    )
+                                    getString(R.string.wind_format, weatherData.getWindKph())
                             );
 
                             // Humidity
                             binding.humidity.setText(
-                                    String.format(
-                                            Locale.getDefault(),
-                                            "%d%%",
-                                            weatherData.getHumidity()
-                                    )
+                                    getString(R.string.humidity_format, weatherData.getHumidity())
                             );
 
                             // Updated time
@@ -337,7 +305,7 @@ public class CityDetail extends AppCompatActivity {
 
                         Toast.makeText(
                                 CityDetail.this,
-                                "Location saved",
+                                getString(R.string.location_saved),
                                 Toast.LENGTH_SHORT
                         ).show();
                     }
@@ -350,7 +318,7 @@ public class CityDetail extends AppCompatActivity {
 
                         Toast.makeText(
                                 CityDetail.this,
-                                "Location is already saved",
+                                getString(R.string.location_already_saved),
                                 Toast.LENGTH_SHORT
                         ).show();
                     }
@@ -382,7 +350,7 @@ public class CityDetail extends AppCompatActivity {
 
                         Toast.makeText(
                                 CityDetail.this,
-                                "Location removed",
+                                getString(R.string.location_removed),
                                 Toast.LENGTH_SHORT
                         ).show();
                     }
@@ -409,7 +377,7 @@ public class CityDetail extends AppCompatActivity {
             );
 
             binding.bookmarkBtn.setContentDescription(
-                    "Remove saved location"
+                    getString(R.string.remove_location_desc)
             );
 
         } else {
@@ -419,7 +387,7 @@ public class CityDetail extends AppCompatActivity {
             );
 
             binding.bookmarkBtn.setContentDescription(
-                    "Save location"
+                    getString(R.string.save_location_desc)
             );
         }
     }
