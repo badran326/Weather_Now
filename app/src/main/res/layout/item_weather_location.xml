@@ -25,7 +25,7 @@
             android:id="@+id/imageWeatherIcon"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:contentDescription="Location"
+            android:contentDescription="@string/search"
             android:padding="7dp"
             android:src="@drawable/baseline_location_on_24"
             app:tint="?attr/colorPrimary" />
@@ -42,7 +42,7 @@
                 android:id="@+id/tvCityName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Toronto"
+                android:text="@string/cityName"
                 android:textColor="?attr/colorOnSurface"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -52,7 +52,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:text="Ontario, Canada"
+                android:text="@string/cityLocation"
                 android:textColor="?attr/colorOnSurfaceVariant"
                 android:textSize="13sp" />
 
@@ -62,7 +62,7 @@
         <ImageView
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:contentDescription="Open location"
+            android:contentDescription="@string/open_location_desc"
             android:padding="6dp"
             android:src="@drawable/baseline_chevron_right_24"
             app:tint="?attr/colorOnSurfaceVariant" />

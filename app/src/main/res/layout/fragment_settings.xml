@@ -19,7 +19,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Settings"
+            android:text="@string/settings"
             android:textColor="@color/white"
             android:textSize="22sp"
             android:textStyle="bold" />
@@ -61,7 +61,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ACCOUNT"
+                        android:text="@string/settings_account"
                         android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -82,7 +82,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:padding="13dp"
-                                android:contentDescription="Account"
+                                android:contentDescription="@string/settings_account"
                                 android:src="@drawable/baseline_person_24"
                                 app:tint="@color/colorPrimary" />
 
@@ -99,7 +99,7 @@
                                 android:id="@+id/tvUserEmail"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="student@college.ca"
+                                android:text="@string/email_hint"
                                 android:textColor="?attr/colorOnSurface"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
@@ -108,7 +108,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text="Signed in with Firebase"
+                                android:text="@string/settings_signed_in_firebase"
                                 android:textColor="?attr/colorOnSurfaceVariant"
                                 android:textSize="11sp" />
 
@@ -142,7 +142,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="PREFERENCES"
+                        android:text="@string/settings_preferences"
                         android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -158,7 +158,7 @@
                             android:layout_width="28dp"
                             android:layout_height="28dp"
                             android:padding="5dp"
-                            android:contentDescription="Temperature"
+                            android:contentDescription="@string/settings_temp_unit"
                             android:src="@drawable/baseline_device_thermostat_24"
                             app:tint="@color/colorPrimary" />
 
@@ -172,7 +172,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Temperature Unit"
+                                android:text="@string/settings_temp_unit"
                                 android:textColor="?attr/colorOnSurface"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
@@ -181,7 +181,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text="Display in Celsius or Fahrenheit"
+                                android:text="@string/settings_temp_unit_desc"
                                 android:textColor="?attr/colorOnSurfaceVariant"
                                 android:textSize="11sp" />
 
@@ -203,7 +203,7 @@
                                 android:minWidth="0dp"
                                 android:paddingStart="8dp"
                                 android:paddingEnd="8dp"
-                                android:text="°C"
+                                android:text="@string/unit_c"
                                 android:textSize="12sp" />
 
                             <com.google.android.material.button.MaterialButton
@@ -214,7 +214,7 @@
                                 android:minWidth="0dp"
                                 android:paddingStart="8dp"
                                 android:paddingEnd="8dp"
-                                android:text="°F"
+                                android:text="@string/unit_f"
                                 android:textSize="12sp" />
 
                         </com.google.android.material.button.MaterialButtonToggleGroup>
@@ -237,7 +237,7 @@
                             android:layout_width="28dp"
                             android:layout_height="28dp"
                             android:padding="5dp"
-                            android:contentDescription="Theme"
+                            android:contentDescription="@string/settings_theme"
                             android:src="@drawable/baseline_dark_mode_24"
                             app:tint="@color/colorPrimary" />
 
@@ -251,7 +251,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Theme"
+                                android:text="@string/settings_theme"
                                 android:textColor="?attr/colorOnSurface"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
@@ -260,7 +260,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text="Light or Dark mode"
+                                android:text="@string/settings_theme_desc"
                                 android:textColor="?attr/colorOnSurfaceVariant"
                                 android:textSize="11sp" />
 
@@ -282,7 +282,7 @@
                                 android:minWidth="0dp"
                                 android:paddingStart="8dp"
                                 android:paddingEnd="8dp"
-                                android:text="Light"
+                                android:text="@string/theme_light"
                                 android:textSize="11sp" />
 
                             <com.google.android.material.button.MaterialButton
@@ -293,7 +293,7 @@
                                 android:minWidth="0dp"
                                 android:paddingStart="8dp"
                                 android:paddingEnd="8dp"
-                                android:text="Dark"
+                                android:text="@string/theme_dark"
                                 android:textSize="11sp" />
 
                         </com.google.android.material.button.MaterialButtonToggleGroup>
@@ -326,7 +326,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="APP"
+                        android:text="@string/settings_app_header"
                         android:textColor="?attr/colorOnSurfaceVariant"
                         android:textSize="11sp"
                         android:textStyle="bold" />
@@ -342,7 +342,7 @@
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:padding="5dp"
-                            android:contentDescription="App information"
+                            android:contentDescription="@string/settings_app_header"
                             android:src="@drawable/baseline_info_24"
                             app:tint="@color/colorPrimary" />
 
@@ -356,7 +356,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="WeatherNow"
+                                android:text="@string/app_name"
                                 android:textColor="?attr/colorOnSurface"
                                 android:textSize="15sp"
                                 android:textStyle="bold" />
@@ -366,7 +366,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text="Version 1.0"
+                                android:text="@string/settings_version"
                                 android:textColor="?attr/colorOnSurfaceVariant"
                                 android:textSize="11sp" />
 
@@ -386,7 +386,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
                 android:layout_marginTop="14dp"
-                android:text="Sign Out"
+                android:text="@string/settings_sign_out"
                 android:textAllCaps="false"
                 android:textColor="@color/error_red"
                 android:textSize="15sp"
@@ -394,6 +394,63 @@
                 app:icon="@drawable/baseline_logout_24"
                 app:iconTint="@color/error_red"
                 app:strokeColor="@color/error_border" />
+
+
+            <!-- Assignment 1 actions -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                app:cardBackgroundColor="?attr/colorSurface"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeColor="?attr/colorOutline"
+                app:strokeWidth="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_more"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSendFeedback"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/settings_send_feedback"
+                        android:textAllCaps="false" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnViewGithub"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/settings_view_github"
+                        android:textAllCaps="false" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnShareApp"
+                        style="@style/Widget.Material3.Button.TextButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:gravity="start|center_vertical"
+                        android:text="@string/settings_share_app"
+                        android:textAllCaps="false" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
 
 
             <!-- Technical info -->
@@ -411,7 +468,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="12dp"
-                    android:text="⚙  SharedPreferences for settings · Firebase Authentication"
+                    android:text="@string/settings_tech_info"
                     android:textColor="@color/info_text"
                     android:textSize="11sp" />
 

@@ -11,6 +11,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.activity.SystemBarStyle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.weathernow.R;
 import com.example.weathernow.databinding.ActivityRegisterBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
@@ -61,27 +62,27 @@ public class RegisterActivity extends AppCompatActivity {
         binding.tilConfirmPassword.setError(null);
 
         if (TextUtils.isEmpty(email)) {
-            binding.tilEmail.setError("Email is required");
+            binding.tilEmail.setError(getString(R.string.error_email_required));
             return;
         }
 
         if (TextUtils.isEmpty(password)) {
-            binding.tilPassword.setError("Password is required");
+            binding.tilPassword.setError(getString(R.string.error_password_required));
             return;
         }
 
         if (password.length() < 6) {
-            binding.tilPassword.setError("Password must be at least 6 characters");
+            binding.tilPassword.setError(getString(R.string.error_password_length));
             return;
         }
 
         if (TextUtils.isEmpty(confirmPassword)) {
-            binding.tilConfirmPassword.setError("Please confirm your password");
+            binding.tilConfirmPassword.setError(getString(R.string.error_confirm_password));
             return;
         }
 
         if (!password.equals(confirmPassword)) {
-            binding.tilConfirmPassword.setError("Passwords do not match");
+            binding.tilConfirmPassword.setError(getString(R.string.error_password_mismatch));
             return;
         }
 
@@ -98,7 +99,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                         Toast.makeText(
                                 RegisterActivity.this,
-                                "Account created successfully",
+                                getString(R.string.success_register),
                                 Toast.LENGTH_SHORT
                         ).show();
 
@@ -120,24 +121,24 @@ public class RegisterActivity extends AppCompatActivity {
                         if (exception instanceof FirebaseAuthWeakPasswordException) {
 
                             binding.tilPassword.setError(
-                                    "Password is too weak"
+                                    getString(R.string.error_weak_password)
                             );
 
                         } else if (exception instanceof FirebaseAuthInvalidCredentialsException) {
 
                             binding.tilEmail.setError(
-                                    "Please enter a valid email address"
+                                    getString(R.string.error_invalid_email)
                             );
 
                         } else if (exception instanceof FirebaseAuthUserCollisionException) {
 
                             binding.tilEmail.setError(
-                                    "An account already exists with this email"
+                                    getString(R.string.error_email_exists)
                             );
 
                         } else {
 
-                            String message = "Registration failed";
+                            String message = getString(R.string.error_registration_failed);
 
                             if (exception != null &&
                                     exception.getMessage() != null) {
