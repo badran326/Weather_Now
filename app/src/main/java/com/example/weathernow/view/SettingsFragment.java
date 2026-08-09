@@ -58,11 +58,6 @@ public class SettingsFragment extends Fragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override
     public void onViewCreated(
             @NonNull View view,
             @Nullable Bundle savedInstanceState
@@ -288,14 +283,10 @@ public class SettingsFragment extends Fragment {
                 new Intent(Intent.ACTION_SENDTO);
 
         intent.setData(
-                Uri.parse("mailto:")
-        );
-
-        intent.putExtra(
-                Intent.EXTRA_EMAIL,
-                new String[]{
-                        getString(R.string.support_email)
-                }
+                Uri.parse(
+                        "mailto:" +
+                                getString(R.string.support_email)
+                )
         );
 
         intent.putExtra(
@@ -352,12 +343,23 @@ public class SettingsFragment extends Fragment {
                 getString(R.string.share_message)
         );
 
-        startActivity(
-                Intent.createChooser(
-                        intent,
-                        getString(R.string.settings_share_via)
-                )
-        );
+        try {
+
+            startActivity(
+                    Intent.createChooser(
+                            intent,
+                            getString(R.string.settings_share_via)
+                    )
+            );
+
+        } catch (Exception e) {
+
+            Toast.makeText(
+                    requireContext(),
+                    "No app available to share.",
+                    Toast.LENGTH_SHORT
+            ).show();
+        }
     }
 
     @Override
