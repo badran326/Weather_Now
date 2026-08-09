@@ -85,6 +85,18 @@ public class SettingsFragment extends Fragment {
                 v -> signOut()
         );
 
+        // Keep Assignment 1 functionality
+        binding.btnSendFeedback.setOnClickListener(
+                v -> sendFeedback()
+        );
+
+        binding.btnViewGithub.setOnClickListener(
+                v -> viewOnGithub()
+        );
+
+        binding.btnShareApp.setOnClickListener(
+                v -> shareApp()
+        );
     }
 
     private void setupAccount() {
@@ -268,6 +280,84 @@ public class SettingsFragment extends Fragment {
 
         startActivity(intent);
         requireActivity().finish();
+    }
+
+    private void sendFeedback() {
+
+        Intent intent =
+                new Intent(Intent.ACTION_SENDTO);
+
+        intent.setData(
+                Uri.parse("mailto:")
+        );
+
+        intent.putExtra(
+                Intent.EXTRA_EMAIL,
+                new String[]{
+                        "support@weathernow.com"
+                }
+        );
+
+        intent.putExtra(
+                Intent.EXTRA_SUBJECT,
+                "WeatherNow Feedback"
+        );
+
+        try {
+
+            startActivity(intent);
+
+        } catch (Exception e) {
+
+            Toast.makeText(
+                    requireContext(),
+                    "No email app installed",
+                    Toast.LENGTH_SHORT
+            ).show();
+        }
+    }
+
+    private void viewOnGithub() {
+
+        Intent intent =
+                new Intent(Intent.ACTION_VIEW);
+
+        intent.setData(
+                Uri.parse("https://github.com/badran326/Weather_Now")
+        );
+
+        try {
+
+            startActivity(intent);
+
+        } catch (Exception e) {
+
+            Toast.makeText(
+                    requireContext(),
+                    "No browser available",
+                    Toast.LENGTH_SHORT
+            ).show();
+        }
+    }
+
+    private void shareApp() {
+
+        Intent intent =
+                new Intent(Intent.ACTION_SEND);
+
+        intent.setType("text/plain");
+
+        intent.putExtra(
+                Intent.EXTRA_TEXT,
+                "Check out WeatherNow!"
+        );
+
+        startActivity(
+                Intent.createChooser(
+                        intent,
+                        "Share via"
+                )
+        );
     }
 
     @Override
