@@ -46,7 +46,7 @@
                 android:text="@string/cityName"
                 android:textColor="?attr/colorOnPrimary"
                 android:textSize="22sp"
-                android:textStyle="bold" />
+                android:fontFamily="sans-serif-medium" />
 
             <TextView
                 android:id="@+id/city_location"
@@ -56,7 +56,8 @@
                 android:layout_marginTop="2dp"
                 android:text="@string/cityLocation"
                 android:textColor="?attr/colorOnPrimary"
-                android:textSize="13sp" />
+                android:textSize="12sp"
+                android:fontFamily="sans-serif" />
 
         </LinearLayout>
 
@@ -127,7 +128,8 @@
                             android:layout_marginTop="6dp"
                             android:text="@string/condition"
                             android:textColor="?attr/colorOnSurfaceVariant"
-                            android:textSize="15sp" />
+                            android:textSize="14sp"
+                            android:fontFamily="sans-serif" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -143,7 +145,7 @@
                                 android:text="@string/temp_14_deg"
                                 android:textColor="?attr/colorOnSurface"
                                 android:textSize="54sp"
-                                android:textStyle="bold" />
+                                android:fontFamily="sans-serif-medium" />
 
                             <TextView
                                 android:id="@+id/temp_unit"
@@ -153,7 +155,8 @@
                                 android:layout_marginBottom="10dp"
                                 android:text="@string/unit_c_label"
                                 android:textColor="?attr/colorOnSurface"
-                                android:textSize="26sp" />
+                                android:textSize="26sp"
+                                android:fontFamily="sans-serif-medium" />
                         </LinearLayout>
 
                         <TextView
@@ -163,7 +166,8 @@
                             android:layout_marginTop="-6dp"
                             android:text="@string/temp_f"
                             android:textColor="?attr/colorOnSurfaceVariant"
-                            android:textSize="15sp" />
+                            android:textSize="14sp"
+                            android:fontFamily="sans-serif" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
@@ -185,7 +189,8 @@
                                 android:layout_marginStart="6dp"
                                 android:text="@string/live_weather_data"
                                 android:textColor="?attr/colorPrimary"
-                                android:textSize="14sp" />
+                                android:textSize="14sp"
+                                android:fontFamily="sans-serif" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -236,7 +241,8 @@
                                     android:text="@string/wind_speed_label"
                                     android:textColor="?attr/colorOnSurfaceVariant"
                                     android:textSize="11sp"
-                                    android:textStyle="bold" />
+                                    android:fontFamily="sans-serif-medium"
+                                    android:letterSpacing="0.08" />
                             </LinearLayout>
 
                             <TextView
@@ -246,7 +252,8 @@
                                 android:layout_marginTop="12dp"
                                 android:text="@string/wind_val"
                                 android:textColor="?attr/colorOnSurface"
-                                android:textSize="18sp" />
+                                android:textSize="16sp"
+                                android:fontFamily="sans-serif-medium" />
 
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
@@ -289,7 +296,8 @@
                                     android:text="@string/feels_like"
                                     android:textColor="?attr/colorOnSurfaceVariant"
                                     android:textSize="11sp"
-                                    android:textStyle="bold" />
+                                    android:fontFamily="sans-serif-medium"
+                                    android:letterSpacing="0.08" />
                             </LinearLayout>
 
                             <TextView
@@ -299,7 +307,8 @@
                                 android:layout_marginTop="12dp"
                                 android:text="@string/feels_like_val"
                                 android:textColor="?attr/colorOnSurface"
-                                android:textSize="18sp" />
+                                android:textSize="16sp"
+                                android:fontFamily="sans-serif-medium" />
 
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
@@ -351,7 +360,8 @@
                                     android:text="@string/updated_label"
                                     android:textColor="?attr/colorOnSurfaceVariant"
                                     android:textSize="11sp"
-                                    android:textStyle="bold" />
+                                    android:fontFamily="sans-serif-medium"
+                                    android:letterSpacing="0.08" />
                             </LinearLayout>
 
                             <TextView
@@ -361,7 +371,8 @@
                                 android:layout_marginTop="12dp"
                                 android:text="@string/last_updated"
                                 android:textColor="?attr/colorOnSurface"
-                                android:textSize="18sp" />
+                                android:textSize="16sp"
+                                android:fontFamily="sans-serif-medium" />
 
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
@@ -404,7 +415,8 @@
                                     android:text="@string/humidity"
                                     android:textColor="?attr/colorOnSurfaceVariant"
                                     android:textSize="11sp"
-                                    android:textStyle="bold" />
+                                    android:fontFamily="sans-serif-medium"
+                                    android:letterSpacing="0.08" />
                             </LinearLayout>
 
                             <TextView
@@ -414,7 +426,8 @@
                                 android:layout_marginTop="12dp"
                                 android:text="@string/humidity_val"
                                 android:textColor="?attr/colorOnSurface"
-                                android:textSize="18sp" />
+                                android:textSize="16sp"
+                                android:fontFamily="sans-serif-medium" />
 
                         </LinearLayout>
                     </com.google.android.material.card.MaterialCardView>
@@ -443,8 +456,8 @@
                             android:layout_height="wrap_content"
                             android:text="@string/city_detail_tech_stack"
                             android:textColor="@color/colorPrimary"
-                            android:textSize="13sp"
-                            android:textStyle="bold" />
+                            android:textSize="14sp"
+                            android:fontFamily="sans-serif-medium" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -498,10 +511,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="18dp"
                         android:text="@string/fetching_weather"
                         android:textColor="?attr/colorOnSurfaceVariant"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -510,7 +523,8 @@
                         android:gravity="center"
                         android:text="@string/requesting_weather_info"
                         android:textColor="?attr/colorOnSurfaceVariant"
-                        android:textSize="11sp" />
+                        android:textSize="12sp"
+                        android:fontFamily="sans-serif" />
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
@@ -536,8 +550,9 @@
                         android:layout_height="wrap_content"
                         android:text="@string/data_flow_header"
                         android:textColor="@color/colorPrimary"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
+                        android:textSize="11sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.08" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -601,8 +616,8 @@
                         android:layout_marginTop="14dp"
                         android:text="@string/unable_to_load_weather"
                         android:textColor="?attr/colorOnSurface"
-                        android:textSize="17sp"
-                        android:textStyle="bold" />
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium" />
 
                     <TextView
                         android:id="@+id/errorMessage"
@@ -612,7 +627,8 @@
                         android:gravity="center"
                         android:text="@string/no_internet_desc"
                         android:textColor="?attr/colorOnSurfaceVariant"
-                        android:textSize="14sp" />
+                        android:textSize="14sp"
+                        android:fontFamily="sans-serif" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnRetry"
@@ -648,8 +664,9 @@
                         android:layout_height="wrap_content"
                         android:text="@string/error_state_header"
                         android:textColor="?attr/colorError"
-                        android:textSize="13sp"
-                        android:textStyle="bold" />
+                        android:textSize="11sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:letterSpacing="0.08" />
 
                     <TextView
                         android:layout_width="wrap_content"

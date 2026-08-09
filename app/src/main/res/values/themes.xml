@@ -35,7 +35,7 @@
         <item name="android:windowLightNavigationBar">true</item>
 
         <!-- App font -->
-        <item name="fontFamily">@font/elmssans_variablefont_wght</item>
+        <item name="fontFamily">sans-serif</item>
 
     </style>
 
@@ -59,19 +59,16 @@
     <style name="TextAppearance.MyApp.Text"
         parent="TextAppearance.Material3.BodyMedium">
 
+        <item name="android:fontFamily">sans-serif</item>
         <item name="android:textSize">14sp</item>
-        <item name="fontFamily">@font/elmssans_variablefont_wght</item>
-
     </style>
-
 
     <style name="TextAppearance.MyApp.HeadlineLarge"
         parent="TextAppearance.Material3.HeadlineLarge">
 
-        <item name="android:textSize">24sp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="fontFamily">@font/elmssans_variablefont_wght</item>
-
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">normal</item>
     </style>
 
 </resources>

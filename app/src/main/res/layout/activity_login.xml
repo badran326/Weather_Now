@@ -35,8 +35,8 @@
             android:layout_marginTop="8dp"
             android:text="@string/app_name"
             android:textColor="?attr/colorOnSurface"
-            android:textSize="27sp"
-            android:textStyle="bold" />
+            android:textSize="22sp"
+            android:fontFamily="sans-serif-medium" />
 
         <TextView
             android:id="@+id/tvSubtitle"
@@ -46,7 +46,8 @@
             android:gravity="center"
             android:text="@string/login_subtitle"
             android:textColor="?attr/colorOnSurfaceVariant"
-            android:textSize="13sp" />
+            android:textSize="12sp"
+            android:fontFamily="sans-serif" />
 
         <!-- Login card -->
         <com.google.android.material.card.MaterialCardView
@@ -72,7 +73,8 @@
                     android:text="@string/email_label"
                     android:textColor="?attr/colorOnSurfaceVariant"
                     android:textSize="11sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.08" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilEmail"
@@ -108,7 +110,8 @@
                     android:text="@string/password_label"
                     android:textColor="?attr/colorOnSurfaceVariant"
                     android:textSize="11sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.08" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilPassword"
@@ -168,7 +171,8 @@
             android:padding="10dp"
             android:text="@string/go_to_register"
             android:textColor="@color/colorPrimary"
-            android:textSize="13sp" />
+            android:textSize="14sp"
+            android:fontFamily="sans-serif" />
 
         <!-- Firebase information -->
         <com.google.android.material.card.MaterialCardView
@@ -187,7 +191,8 @@
                 android:padding="12dp"
                 android:text="@string/login_tech_info"
                 android:textColor="@color/info_text"
-                android:textSize="11sp" />
+                android:textSize="12sp"
+                android:fontFamily="sans-serif" />
 
         </com.google.android.material.card.MaterialCardView>
 

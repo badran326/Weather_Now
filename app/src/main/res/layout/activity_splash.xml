@@ -35,7 +35,8 @@
             style="@style/TextAppearance.MyApp.Text"
             android:text="@string/tagline"
             android:textColor="@color/text_secondary"
-            android:textSize="16sp" />
+            android:textSize="12sp"
+            android:fontFamily="sans-serif" />
 
         <LinearLayout
             android:layout_width="wrap_content"

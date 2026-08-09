@@ -23,7 +23,7 @@
             android:text="@string/app_name"
             android:textColor="?attr/colorOnPrimary"
             android:textSize="22sp"
-            android:textStyle="bold" />
+            android:fontFamily="sans-serif-medium" />
 
     </LinearLayout>
 
@@ -84,7 +84,8 @@
                     android:layout_marginStart="7dp"
                     android:text="@string/search_tech_info"
                     android:textColor="?attr/colorOnSurfaceVariant"
-                    android:textSize="11sp" />
+                    android:textSize="12sp"
+                    android:fontFamily="sans-serif" />
 
             </LinearLayout>
 
@@ -128,7 +129,8 @@
             android:padding="18dp"
             android:text="@string/search_empty_state"
             android:textColor="?attr/colorOnSurfaceVariant"
-            android:textSize="15sp" />
+            android:textSize="14sp"
+            android:fontFamily="sans-serif" />
 
     </FrameLayout>
 
